@@ -17,6 +17,8 @@
 
 ## ตัวอย่างรายงาน
 
+วิธีดึงสถานะปัจจุบันด้วย curl/PAT และ Python พร้อม pagination: [คู่มือ Job Status API](docs/CVAT-JOB-STATUS-API-GUIDE-TH.md)
+
 - [สถานะก่อนและหลังส่ง QA](examples/reports/job-status-before-after.csv)
 - [สถานะหลังตรวจรับ](examples/reports/job-status-final.csv)
 - [ผลตรวจสอบ export](examples/reports/export-validation.json)

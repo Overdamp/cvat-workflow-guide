@@ -222,6 +222,8 @@ CREATE TABLE dataset_releases (
 
 ## 7. CVAT API Integration
 
+ดูตัวอย่างคำสั่งที่นำไปใช้ได้ใน [คู่มือเรียก Job Status API](CVAT-JOB-STATUS-API-GUIDE-TH.md): ดูงานรายคน, คิว QA, Issues/Comments, PAT authentication และ Python สำหรับอ่านทุกหน้าแล้วสร้าง CSV พร้อมข้อจำกัดเรื่อง online status และเปอร์เซ็นต์ความคืบหน้า
+
 ### 7.1 Client requirements
 
 สร้าง CVAT client กลางเพียงตัวเดียวและให้ทุก service ใช้ร่วมกัน ต้องรองรับ:
