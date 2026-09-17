@@ -4,6 +4,8 @@
 
 CVAT มี PostgreSQL database ที่เก็บข้อมูลภายใน เช่น users, projects, tasks, jobs, labels, annotations, issues และ comments สามารถเข้าไปดู schema และ monitor ได้ แต่ database ภายในไม่ควรเป็น integration contract ของระบบธุรกิจ เพราะตารางและชื่อ column อาจเปลี่ยนเมื่อ upgrade
 
+บริบทปัจจุบันของการทดลองคือ CVAT 2.75.1 บน Docker Compose โดย health endpoint ตรวจได้ว่า cache, database และ OPA ทำงานปกติ ณ เวลาตรวจสอบ การมี PostgreSQL ของ CVAT ไม่ได้หมายความว่า Platform ควรใช้ฐานนี้เป็นฐานข้อมูลหลักของตนเอง
+
 แนวทางที่ควรใช้:
 
 | เป้าหมาย | วิธีที่เหมาะสม |

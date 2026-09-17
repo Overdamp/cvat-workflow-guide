@@ -11,6 +11,8 @@
 5. เก็บไฟล์ต้นฉบับและไฟล์ผลลัพธ์ใน object storage หรือ managed storage และเก็บ URI/checksum ในฐานข้อมูล
 6. ทุกการเปลี่ยนแปลงที่มีผลต่อ workflow ต้องมี audit trail และ correlation ID
 
+การ export ไม่ใช่วิธี sync หลักของระบบ เพราะไฟล์ ZIP/JSON ที่สร้างซ้ำจะเพิ่ม storage, มีข้อมูลซ้ำ และอาจไม่ตรงกับสถานะล่าสุด การ export ให้ใช้เมื่อสร้าง Dataset Release, ส่งเข้า training, backup ตามนโยบาย หรือส่งมอบให้ระบบภายนอกเท่านั้น
+
 ## 2. ภาพรวมระบบ
 
 ```mermaid
@@ -250,9 +252,9 @@ GET /api/issues?org=1&job_id=2&resolved=false
 
 `stage`, `state` และ `status` เป็นสถานะของ CVAT ส่วน `business_status` เช่น `READY_FOR_TRAINING` หรือ `APPROVED_BY_ENGINEER` ควรอยู่ใน Platform เพราะเป็นกติกาธุรกิจ
 
-### 5.2 Export annotation
+### 5.2 Export annotation (สำหรับ release ไม่ใช่การ sync)
 
-เมื่อผ่าน approval แล้ว Export Service เรียก CVAT export API แบบ asynchronous รอ request เสร็จ แล้วเก็บ artifact ใน object storage:
+เมื่อผ่าน approval แล้ว Export Service เรียก CVAT export API แบบ asynchronous รอ request เสร็จ แล้วเก็บ artifact แบบ versioned ใน object storage การเปลี่ยนสถานะ, assignee, Issue และ comment ไม่ควรทำโดยการ export ใหม่ทุกครั้ง ให้ใช้ API/Webhook อ่าน metadata และสถานะ:
 
 ```text
 CVAT export → temporary file → validate → canonical artifact
@@ -278,7 +280,7 @@ CVAT export → temporary file → validate → canonical artifact
 }
 ```
 
-ก่อนส่งเข้า training ให้ตรวจว่าจำนวนภาพ, labels, class mapping, image dimensions และ checksum ตรงกับ manifest หากไม่ตรงต้องสร้าง release ใหม่ ไม่แก้ไฟล์เดิมแบบ in-place
+ก่อนส่งเข้า training ให้ตรวจว่าจำนวนภาพ, labels, class mapping, image dimensions และ checksum ตรงกับ manifest หากไม่ตรงต้องสร้าง release ใหม่ ไม่แก้ไฟล์เดิมแบบ in-place กำหนด lifecycle ลบ temporary export และเก็บเฉพาะ release ที่อ้างอิงได้ตาม retention policy
 
 ### 5.3 Training input
 

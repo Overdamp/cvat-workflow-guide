@@ -9,6 +9,8 @@
 
 แยก CVAT เป็นบริการสำหรับ annotation และ review แล้วเชื่อมกับแพลตฟอร์มหลักผ่าน API/SDK และ Webhook ผู้ใช้เปิดหน้าแก้ภาพผ่าน deep link ส่วนคิวงาน กำหนดส่ง และ dataset release อยู่ในแพลตฟอร์ม
 
+อย่าใช้การ export dataset เป็นวิธี polling หรือ sync สถานะ เพราะจะสร้างไฟล์ซ้ำและทำให้ข้อมูลใน Platform ล่าช้า การ export ใช้เป็น immutable release artifact สำหรับ training, backup หรือการส่งมอบเท่านั้น
+
 การแยกบริการไม่ได้หมายถึงต้องซื้อเครื่องแยกทุกส่วน ระยะแรกอาจอยู่บน host เดียวกัน แต่ควรแยกขอบเขตข้อมูล การ deploy และสิทธิ์เข้าถึงไว้
 
 CVAT มี REST API, Python SDK และ CLI สำหรับ integration ตาม [เอกสาร Developer](https://docs.cvat.ai/docs/api_sdk/) และ [SDK](https://docs.cvat.ai/docs/api_sdk/sdk/)

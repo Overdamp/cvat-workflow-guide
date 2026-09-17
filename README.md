@@ -2,7 +2,7 @@
 
 คู่มือการใช้และเชื่อมต่อ CVAT สำหรับงาน Annotation → QA → แก้ไข → ตรวจรับ → Export และแนวทางออกแบบ Workflow Platform
 
-เอกสารมาจากการทดลองชุดภาพ 20 ภาพใน CVAT พร้อมการเปิด Issue, ส่งกลับแก้ และตรวจสอบ export โดยรายงานตัวอย่างมี 241 annotations และ 26 class definitions
+เอกสารอ้างอิงจากการทดลองจริงชุดภาพ 20 ภาพใน CVAT พร้อมการเปิด Issue, ส่งกลับแก้, ตรวจซ้ำ และตรวจสอบ export โดยรายงานตัวอย่างมี 241 annotations และ 26 class definitions ปรับให้สอดคล้องกับบริบทปัจจุบัน: CVAT 2.75.1, Docker Compose, Organization `ptt-demo`, Project `ptt2` (#3), Task `train` (#2), Job #2 และแนวทางเชื่อม Platform ผ่าน REST API/Webhook
 
 ## เริ่มอ่าน
 
@@ -15,8 +15,9 @@
 | ออกแบบ AI Platform แบบ Roboflow ที่ใช้ CVAT | [AI Platform + CVAT Architecture](docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md) |
 | Developer ดู PostgreSQL schema และ monitor database | [Database Schema & Monitoring Guide](docs/CVAT-DATABASE-SCHEMA-MONITORING-GUIDE-TH.md) |
 | ดูโครงสร้าง PostgreSQL ทุกตาราง | [Complete Database Schema Reference](docs/CVAT-DATABASE-SCHEMA-REFERENCE-TH.md) |
+| ตั้งค่า SSO ด้วย Keycloak/OIDC | [AI Platform + CVAT Architecture — Keycloak](docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md#31-ใช้-keycloak-ทำ-sso-ร่วมกับ-platform) |
 
-แนะนำอ่านคู่มือปฏิบัติการก่อน แล้วอ่าน Platform Integration Guideline ซึ่งเป็นฉบับล่าสุดที่ขยายรายละเอียดเรื่อง edition/SSO, webhook deduplication, API consistency และ release snapshots
+แนะนำอ่านคู่มือปฏิบัติการก่อน แล้วอ่าน Developer Guideline และ AI Platform Architecture ตามลำดับ หากจะทำระบบจริงให้ดูเรื่อง edition/SSO, webhook deduplication, API consistency และ release snapshots ก่อนเริ่มเขียน integration
 
 ## ตัวอย่างรายงาน
 
@@ -46,7 +47,7 @@ Repository นี้แยกจาก source code และประวัต�
 - `<YOUR_TEST_PASSWORD>` ให้ตั้งเอง ไม่มีรหัสผ่านบัญชีที่ใช้งานจริงใน repository
 - `ptt-demo`, `ptt2`, user names และ resource IDs เป็นตัวอย่างจากการทดลอง ไม่ได้สร้างบัญชีหรือทรัพยากรให้ผู้อ่าน
 - URL `localhost:8080` ใช้กับเครื่องทดลอง ให้เปลี่ยนเป็น CVAT URL ของทีม
-- คู่มืออ้างผลทดสอบ CVAT 2.75.1 เมื่อ 16 กันยายน 2026; Integration guide จัดทำ 17 กันยายน 2026
+- คู่มืออ้างผลทดสอบ CVAT 2.75.1 เมื่อ 16–17 กันยายน 2026; schema reference เป็น snapshot จาก `cvat_db` จริง ณ 17 กันยายน 2026
 
 ลิงก์ source CVAT อ้างอิง commit ที่ตรวจในเครื่องทดลองเพื่ออ่าน implementation ได้แม้แยก repository แล้ว
 
@@ -54,7 +55,7 @@ Repository นี้แยกจาก source code และประวัต�
 
 CVAT ใช้จัดการภาพและ annotations ส่วน priority, SLA, assignment history และ business approval ต้องออกแบบเพิ่ม การกด Save ไม่ใช่ส่ง QA และการ Resolve Issue ไม่ใช่ approval ทั้ง Job
 
-SSO ขึ้นกับ edition/deployment, Webhook ต้องตรวจ signature และรองรับการส่งซ้ำ, การเขียน local database กับ CVAT API ไม่ใช่ transaction เดียวกัน รายละเอียดที่ปรับให้แม่นยำอยู่ใน [Integration guide](docs/CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
+SSO ขึ้นกับ edition/deployment, Webhook ต้องตรวจ signature และรองรับการส่งซ้ำ, การเขียน local database กับ CVAT API ไม่ใช่ transaction เดียวกัน และ Keycloak ต้อง map สิทธิ์ CVAT แยกจากการ login รายละเอียดอยู่ใน [Integration guide](docs/CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md) และ [AI Platform Architecture](docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md)
 
 ## แหล่งอ้างอิง
 

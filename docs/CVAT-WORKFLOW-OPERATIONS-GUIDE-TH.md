@@ -2,6 +2,8 @@
 
 คู่มือนี้สรุป workflow ที่ทดลองจริงกับ CVAT สำหรับทีมตรวจจับอุปกรณ์โรงงาน ตั้งแต่เตรียมผู้ใช้จนถึง export dataset และรายงานสถานะ
 
+> สถานะอ้างอิงปัจจุบัน: การทดลอง Job #2 ดำเนินครบวงจรแล้ว โดย `annotator01` ทำ annotation, `reviewer01` ตรวจและเปิด Issue 1 จุด, annotator แก้ไข, reviewer Resolve Issue และ Coordinator ตรวจรับเป็น `Acceptance / Completed` ไฟล์ export ที่ตรวจแล้วมี 20 ภาพ, 241 annotations และ 26 classes
+
 ## 1. ขอบเขตและตัวอย่างที่ใช้
 
 ระบบทดลองเปิดที่ `http://localhost:8080` และใช้ข้อมูลดังนี้:
@@ -23,6 +25,8 @@
 | `annotator01` | ทำและแก้ annotation | Worker |
 | `annotator02` | รับงาน annotation เพิ่ม | Worker |
 | `reviewer01` | QA, Issue และตรวจรับ | Worker |
+
+ถ้า Platform ใช้ Keycloak ให้ผู้ใช้ login ผ่าน OIDC SSO ก่อนเปิด CVAT ได้ โดยไม่ต้องสร้างรหัสผ่านซ้ำ แต่ยังต้องมี Organization membership และ Job assignment ใน CVAT
 
 รหัสผ่าน `<YOUR_TEST_PASSWORD>` ใช้เฉพาะเครื่องทดลอง ควรใช้รหัสส่วนตัวในระบบจริง
 

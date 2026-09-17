@@ -15,6 +15,10 @@
 
 CVAT เป็นระบบหลักสำหรับภาพ, annotations, Jobs, Issues และ Comments ส่วนระบบที่พัฒนาขึ้นจะทำหน้าที่จัดคิว, เก็บประวัติ, บังคับกติกา, แจ้งเตือน, ทำรายงาน และควบคุม Dataset Release
 
+ห้ามออกแบบให้ Platform export ZIP ทุกครั้งที่ต้องการดูสถานะ เพราะเป็น snapshot ที่ทำให้ storage และข้อมูลซ้ำเพิ่มขึ้น ให้ใช้ Job/Issue API และ Webhook สำหรับสถานะ แล้ว export เฉพาะตอนสร้าง Dataset Release หรือส่งเข้า training
+
+หาก Platform ใช้ Keycloak ให้เชื่อม CVAT ผ่าน OIDC SSO เพื่อให้ผู้ใช้ไม่ต้อง login ซ้ำ แต่ยังต้อง provision Organization membership, Project/Job permission และ mapping ของกลุ่มผู้ใช้แยกจากการยืนยันตัวตน ดูรายละเอียดใน [AI Platform + CVAT Architecture](AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md#31-ใช้-keycloak-ทำ-sso-ร่วมกับ-platform)
+
 ## 2. ขอบเขตข้อมูลอ้างอิง
 
 ตัวอย่างระบบทดลองปัจจุบัน:
