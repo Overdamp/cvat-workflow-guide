@@ -27,10 +27,10 @@ python3 -m http.server 5173
 
 ## สิ่งที่ prototype นี้ทำและยังไม่ทำ
 
-หน้าเว็บนี้เก็บสถานะ demo ใน `localStorage` จึงกดทดสอบ workflow ได้ทันทีโดยไม่ต้องมี backend เพิ่ม ปุ่ม workflow เป็น simulation และยังไม่ได้เปลี่ยนข้อมูล CVAT จริง การเปิด CVAT ใช้ deep link จึงยังทำงานได้แม้ CVAT จะไม่อนุญาต iframe
+หน้าเว็บนี้เก็บสถานะ demo ใน `localStorage` จึงกดทดสอบ workflow ได้ทันทีโดยไม่ต้องมี backend เพิ่ม ปุ่ม workflow เป็น simulation และยังไม่ได้เปลี่ยนข้อมูล CVAT จริง ส่วน CVAT Job ถูกโหลดไว้ใน iframe บนหน้าเดียวกันโดยตรง
 
 เมื่อนำไปต่อ production ให้เปลี่ยน `app.js` เป็น Platform API ที่เรียก CVAT REST API, ใช้ Keycloak OIDC SSO, เก็บ mapping ใน Platform PostgreSQL และรับ Webhook เพื่อ sync สถานะตามเอกสาร architecture ใน `docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md`
 
 ## หมายเหตุ iframe
 
-ช่อง preview พยายามโหลด CVAT ใน iframe แต่ browser/CVAT อาจบล็อกด้วย `X-Frame-Options` หรือ CSP ในกรณีนั้นให้ใช้ปุ่มเปิดแท็บใหม่ ซึ่งเป็นรูปแบบที่แนะนำสำหรับ MVP
+ช่อง workspace โหลด CVAT ใน iframe โดยตรง แต่ browser/CVAT อาจบล็อกด้วย `X-Frame-Options` หรือ CSP ในกรณีนั้นให้ใช้ปุ่มเปิดแท็บใหม่ หรือปรับ reverse proxy/CSP ของ CVAT ให้อนุญาต origin ของ Platform ก่อนใช้งาน production

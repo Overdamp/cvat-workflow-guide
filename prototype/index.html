@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PTT Annotation Platform Prototype</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="embed.css" />
 </head>
 <body>
   <header class="topbar">
@@ -26,7 +27,7 @@
         <section class="panel jobs"><div class="panel-head"><div><h2>My work</h2><p class="muted">งานจริงจากการทดลอง CVAT</p></div><span class="pill blue">ptt-demo</span></div><div id="jobList"></div></section>
         <section class="panel timeline"><div class="panel-head"><div><h2>Workflow activity</h2><p class="muted">เหตุการณ์ของงานที่เลือก</p></div></div><div id="activity"></div></section>
       </div>
-      <section class="panel cvat-panel"><div class="panel-head"><div><h2>CVAT workspace</h2><p class="muted">ฝัง CVAT ได้เมื่อ deployment อนุญาต iframe; หากไม่ได้ ให้เปิดแท็บใหม่</p></div><button id="openCvat" class="primary">Open in new tab ↗</button></div><div class="cvat-frame"><iframe id="cvatFrame" title="CVAT Job"></iframe><div id="frameFallback"><div class="big-icon">◫</div><h3>CVAT preview</h3><p>กด Open in new tab เพื่อทำ annotation ใน CVAT จริง</p><button id="openCvat2" class="primary">เปิด CVAT Job</button></div></div></section>
+      <section class="panel cvat-panel"><div class="panel-head"><div><h2>CVAT workspace</h2><p class="muted">CVAT Job ถูกฝังในหน้านี้โดยตรง</p></div><button id="openCvat" class="secondary">เปิดแท็บใหม่ ↗</button></div><div class="cvat-frame"><iframe id="cvatFrame" title="CVAT Job" allow="fullscreen"></iframe><div id="frameFallback"><div class="big-icon">⚠</div><h3>CVAT ไม่อนุญาตให้ฝัง</h3><p>ตรวจ CSP/X-Frame-Options หรือเปิดแท็บใหม่</p><button id="openCvat2" class="primary">เปิด CVAT Job</button></div></div></section>
       <section class="panel actions"><div class="panel-head"><div><h2>Workflow actions</h2><p class="muted">การกดปุ่มจะจำลอง command ที่ Platform ส่งไป CVAT API</p></div><span id="statePill" class="pill orange">Annotation / In progress</span></div><div class="action-row"><button id="sendQa" class="primary">ส่ง QA</button><button id="sendBack" class="secondary">ส่งกลับแก้</button><button id="resolve" class="secondary">Resolve issue</button><button id="approve" class="success">ตรวจรับและสร้าง release</button></div><div id="toast" class="toast"></div></section>
     </section>
   </main>
