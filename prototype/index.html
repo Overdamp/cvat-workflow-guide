@@ -1,36 +1,12 @@
 <!doctype html>
-<html lang="th">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PTT Annotation Platform Prototype</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="embed.css" />
-</head>
-<body>
-  <header class="topbar">
-    <div class="brand"><span class="dot"></span> PTT AI Platform</div>
-    <div class="top-actions"><span id="connection">Demo mode</span><button id="reset" class="ghost">Reset demo</button></div>
-  </header>
-  <main class="layout">
-    <aside class="sidebar">
-      <h2>Workspace</h2>
-      <label>CVAT URL<input id="cvatUrl" value="http://localhost:8080" /></label>
-      <label>Current user<select id="user"><option>admin2</option><option>annotator01</option><option>annotator02</option><option>reviewer01</option></select></label>
-      <nav><button class="nav active">Dashboard</button><button class="nav">My work</button><button class="nav">QA queue</button><button class="nav">Dataset releases</button></nav>
-      <div class="help"><strong>Prototype flow</strong><p>เลือกงาน → เปิด CVAT → บันทึก annotation → ส่ง QA → reviewer ตรวจ → สร้าง release</p></div>
-    </aside>
-    <section class="content">
-      <div class="page-title"><div><p class="eyebrow">WORKSPACE / PTT-DEMO</p><h1>Annotation dashboard</h1><p class="muted">ศูนย์กลางติดตามงาน โดยให้ CVAT เป็นเครื่องมือ annotation</p></div><button id="refresh" class="secondary">↻ Refresh status</button></div>
-      <div class="metrics"><div><span>Open jobs</span><b id="openJobs">1</b></div><div><span>Waiting QA</span><b id="qaJobs">0</b></div><div><span>Open issues</span><b id="issues">1</b></div><div><span>Approved releases</span><b id="releases">0</b></div></div>
-      <div class="grid">
-        <section class="panel jobs"><div class="panel-head"><div><h2>My work</h2><p class="muted">งานจริงจากการทดลอง CVAT</p></div><span class="pill blue">ptt-demo</span></div><div id="jobList"></div></section>
-        <section class="panel timeline"><div class="panel-head"><div><h2>Workflow activity</h2><p class="muted">เหตุการณ์ของงานที่เลือก</p></div></div><div id="activity"></div></section>
-      </div>
-      <section class="panel cvat-panel"><div class="panel-head"><div><h2>CVAT workspace</h2><p class="muted">CVAT Job ถูกฝังในหน้านี้โดยตรง</p></div><button id="openCvat" class="secondary">เปิดแท็บใหม่ ↗</button></div><div class="cvat-frame"><iframe id="cvatFrame" title="CVAT Job" allow="fullscreen"></iframe><div id="frameFallback"><div class="big-icon">⚠</div><h3>CVAT ไม่อนุญาตให้ฝัง</h3><p>ตรวจ CSP/X-Frame-Options หรือเปิดแท็บใหม่</p><button id="openCvat2" class="primary">เปิด CVAT Job</button></div></div></section>
-      <section class="panel actions"><div class="panel-head"><div><h2>Workflow actions</h2><p class="muted">การกดปุ่มจะจำลอง command ที่ Platform ส่งไป CVAT API</p></div><span id="statePill" class="pill orange">Annotation / In progress</span></div><div class="action-row"><button id="sendQa" class="primary">ส่ง QA</button><button id="sendBack" class="secondary">ส่งกลับแก้</button><button id="resolve" class="secondary">Resolve issue</button><button id="approve" class="success">ตรวจรับและสร้าง release</button></div><div id="toast" class="toast"></div></section>
-    </section>
-  </main>
-  <script src="app.js"></script>
-</body>
-</html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PTT · CVAT workspace</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="embed.css"></head>
+<body><header class="topbar"><div class="brand">PTT AI Platform · Local test</div><span id="connection">กำลังเชื่อมต่อ</span></header>
+<main class="content" style="max-width:none">
+<div class="page-title"><div><h1>Annotation workspace</h1><p>ข้อมูลจาก CVAT จริง · บันทึก annotation ใน CVAT ก่อนเปลี่ยนขั้นตอน</p></div><button id="refresh" class="secondary">อัปเดตสถานะ</button></div>
+<div class="action-row"><button id="login" class="secondary">เข้าสู่ระบบ / เปลี่ยนบัญชี CVAT</button><label>Job ID <input id="jobId" type="number" min="1" value="2"></label><button id="load" class="primary">เปิด Job</button><button id="openCvat" class="secondary">เปิด CVAT อีกแท็บ</button></div>
+<p id="notice" role="status" aria-live="polite"></p>
+<section class="panel"><h2>สถานะ Job</h2><p id="jobInfo">ยังไม่ได้อ่านข้อมูล</p><p id="issueInfo"></p></section>
+<section class="panel"><div class="panel-head"><h2>CVAT</h2><button id="fullscreen" class="secondary">เต็มจอ</button></div><div class="cvat-frame"><iframe id="cvatFrame" title="CVAT annotation workspace" allow="fullscreen"></iframe></div></section>
+<section class="panel"><h2>เปลี่ยนขั้นตอนจริงใน CVAT</h2><p>Coordinator ใช้บัญชีที่มีสิทธิ์มอบหมายงาน หากมีงานแก้ไขค้างใน CVAT ให้ Save ก่อน ปุ่มจะไม่ reload editor อัตโนมัติ</p>
+<div class="action-row"><label>ผู้รับงาน <input id="assignee" value="reviewer01" autocomplete="off"></label><button data-stage="validation" class="primary">ส่งตรวจ QA</button><button data-stage="annotation" class="secondary">ส่งกลับแก้</button><button data-stage="acceptance" class="success">ตรวจรับ</button></div>
+<p>ส่งกลับแก้: ระบุ annotator เดิมก่อนกด · เปิด/ตอบ/Resolve Issue ใน CVAT แล้วกดอัปเดตสถานะ · ตรวจรับไม่สร้าง ZIP หรือ release อัตโนมัติ</p></section></main><script src="app.js"></script></body></html>

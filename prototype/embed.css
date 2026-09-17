@@ -1,4 +1,5 @@
-/* CVAT is shown directly in the workspace. The fallback remains available
-   for deployments that send X-Frame-Options/CSP frame restrictions. */
-#frameFallback { display: none !important; }
-.cvat-frame { height: 640px; }
+.cvat-frame { height: 78vh; min-height: 600px; background: white; }
+.cvat-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+input { padding: 9px; border: 1px solid #ccd4e0; border-radius: 6px; }
+#notice { min-height: 24px; color: #2454a4; }
+button:disabled { opacity: .5; cursor: wait; }
