@@ -1,0 +1,3 @@
+snapshot,captured_at,organization,project_id,project,task_id,task,job_id,start_frame,stop_frame,frame_count,assignee,stage,state,open_issues,resolved_issues
+before_qa_handoff,2026-09-16T16:28:51+07:00,ptt-demo,3,ptt2,2,train,2,0,19,20,annotator01,annotation,in progress,0,0
+after_qa_handoff,2026-09-16T16:28:52+07:00,ptt-demo,3,ptt2,2,train,2,0,19,20,reviewer01,validation,in progress,0,0

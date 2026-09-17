@@ -1,0 +1,21 @@
+{
+  "archive": "artifacts/example-dataset.zip",
+  "sha256": "<SHA256_OF_YOUR_EXPORTED_ARCHIVE>",
+  "captured_at": "2026-09-16T10:03:04.143919+00:00",
+  "images": 20,
+  "classes": 26,
+  "export_annotations": 241,
+  "live_shapes": 241,
+  "mismatches": [],
+  "max_coordinate_error_pixels": 0.0019846874996432007,
+  "parser_import_passed": true,
+  "stage": "acceptance",
+  "state": "completed",
+  "issues": [
+    {
+      "id": 1,
+      "frame": 1,
+      "resolved": true
+    }
+  ]
+}

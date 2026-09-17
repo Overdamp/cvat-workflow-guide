@@ -1,0 +1,26 @@
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv/
+__pycache__/
+
+# Original media, datasets and private snapshots
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.jpg
+*.jpeg
+*.png
+*.mp4
+datasets/
+artifacts/
+*live-snapshot*.json
+
+# Editor / operating system
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,2 @@
+snapshot,captured_at,organization,project_id,task_id,job_id,frame_count,assignee,stage,state,open_issues,resolved_issues,annotation_count
+after_qa_acceptance,2026-09-16T10:03:04.143919+00:00,ptt-demo,3,2,2,20,reviewer01,acceptance,completed,0,1,241
