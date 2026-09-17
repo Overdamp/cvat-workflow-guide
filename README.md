@@ -12,6 +12,7 @@
 | ต้องการเข้าใจคำศัพท์และปัญหาที่พบจริง | [Q&A และแนวทางออกแบบระบบ](docs/CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md) |
 | Developer ออกแบบ workflow และ reporting | [Developer Guideline](docs/CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md) |
 | Architect / Developer เชื่อม CVAT กับ Platform | [Platform Integration Guideline](docs/CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md) |
+| Developer ดู PostgreSQL schema และ monitor database | [Database Schema & Monitoring Guide](docs/CVAT-DATABASE-SCHEMA-MONITORING-GUIDE-TH.md) |
 
 แนะนำอ่านคู่มือปฏิบัติการก่อน แล้วอ่าน Platform Integration Guideline ซึ่งเป็นฉบับล่าสุดที่ขยายรายละเอียดเรื่อง edition/SSO, webhook deduplication, API consistency และ release snapshots
 
