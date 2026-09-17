@@ -12,7 +12,9 @@
 | ต้องการเข้าใจคำศัพท์และปัญหาที่พบจริง | [Q&A และแนวทางออกแบบระบบ](docs/CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md) |
 | Developer ออกแบบ workflow และ reporting | [Developer Guideline](docs/CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md) |
 | Architect / Developer เชื่อม CVAT กับ Platform | [Platform Integration Guideline](docs/CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md) |
+| ออกแบบ AI Platform แบบ Roboflow ที่ใช้ CVAT | [AI Platform + CVAT Architecture](docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md) |
 | Developer ดู PostgreSQL schema และ monitor database | [Database Schema & Monitoring Guide](docs/CVAT-DATABASE-SCHEMA-MONITORING-GUIDE-TH.md) |
+| ดูโครงสร้าง PostgreSQL ทุกตาราง | [Complete Database Schema Reference](docs/CVAT-DATABASE-SCHEMA-REFERENCE-TH.md) |
 
 แนะนำอ่านคู่มือปฏิบัติการก่อน แล้วอ่าน Platform Integration Guideline ซึ่งเป็นฉบับล่าสุดที่ขยายรายละเอียดเรื่อง edition/SSO, webhook deduplication, API consistency และ release snapshots
 
@@ -30,7 +32,7 @@
 ## ขอบเขต Repository
 
 ```text
-docs/                  คู่มือ 4 ฉบับ
+ docs/                  คู่มือและเอกสารอ้างอิง
 examples/reports/      CSV/JSON และคำอธิบาย
 README.md              จุดเริ่มต้น
 .gitignore             ป้องกันข้อมูลทดลองและ secrets ถูกเพิ่มโดยเผลอ
