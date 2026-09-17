@@ -59,5 +59,15 @@ for(const button of document.querySelectorAll('[data-stage]')) button.onclick=as
     await refresh(); notice(`CVAT บันทึก ${stage} แล้ว; หากต้องทำงานต่อให้กดเปิด Job หลังแน่ใจว่า Save แล้ว`);
   } catch(error) {notice(error.message);} finally {busy=false;document.querySelectorAll('[data-stage]').forEach(x=>x.disabled=false);}
 };
-$('cvatFrame').src='/auth/login';
-loadJob();
+if (location.pathname !== '/platform/') {
+  document.querySelectorAll('button').forEach(button => button.disabled = true);
+  $('jobInfo').textContent = 'หน้านี้เปิดผ่าน static server ซึ่งเชื่อม CVAT API ไม่ได้';
+  notice('กรุณาเปิด Platform ผ่าน proxy: ');
+  const link = document.createElement('a');
+  link.href = 'http://localhost:5175/platform/';
+  link.textContent = 'เปิด Platform ที่ localhost:5175/platform/';
+  $('notice').append(link);
+} else {
+  $('cvatFrame').src='/auth/login';
+  loadJob();
+}
