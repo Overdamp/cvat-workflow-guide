@@ -66,6 +66,83 @@ https://cvat.example.com/tasks/2/jobs/2
 
 ถ้าต้องการ UX แบบหน้าเดียว แนะนำใช้ reverse proxy และ SSO เดียวกันก่อน แล้วค่อยฝัง iframe หลังทดสอบ security policy สำเร็จ การ fork CVAT frontend ควรทำเมื่อมีข้อกำหนด UI ที่ deep link และ iframe แก้ไม่ได้ เพราะเพิ่มภาระ merge และ upgrade
 
+## 3.1 ใช้ Keycloak ทำ SSO ร่วมกับ Platform
+
+ถ้า Platform มี Keycloak อยู่แล้ว ให้ลงทะเบียน CVAT เป็น OIDC client ใน realm เดียวกัน ผู้ใช้จะ login ที่ Keycloak ครั้งเดียว จากนั้นเมื่อกดเปิด CVAT ระบบจะตรวจ session เดิมและไม่ถาม password ซ้ำ
+
+```text
+ผู้ใช้ → Platform → Keycloak login
+                    ↓ session เดียวกัน
+ผู้ใช้ → CVAT → redirect Keycloak → CVAT callback → CVAT session
+```
+
+### การตั้งค่าใน Keycloak
+
+สร้าง client เช่น `cvat-prod` โดยกำหนด:
+
+| ค่า | ตัวอย่าง |
+|---|---|
+| Client type | OpenID Connect |
+| Client authentication | On (สำหรับ confidential client) |
+| Standard flow | Enabled (Authorization Code) |
+| Valid redirect URI | `https://cvat.example.com/api/auth/oidc/keycloak-oidc/login/callback/` |
+| Web origins | `https://cvat.example.com` |
+| Scopes | `openid`, `profile`, `email` |
+
+ใช้ redirect URI ของ domain จริงเท่านั้น ไม่ใช้ wildcard กว้าง ๆ ใน production และเก็บ client secret ใน Docker secret หรือ secret manager
+
+### ตัวอย่าง CVAT `auth_config.yml`
+
+ความสามารถ SSO/OIDC ต้องตรวจ edition และ version ของ CVAT ที่ติดตั้ง โดยเอกสาร CVAT ปัจจุบันระบุ SSO ผ่าน OIDC/SAML สำหรับ CVAT Enterprise หากเป็น Community edition ให้ตรวจว่ารุ่นนั้นเปิดใช้ social/OIDC configuration ได้หรือใช้ reverse proxy/SSO ที่รองรับอย่างเป็นทางการก่อน deploy
+
+```yaml
+---
+sso:
+  enabled: true
+  selection_mode: email_address
+  enable_pkce: true
+  identity_providers:
+    - id: keycloak-oidc
+      protocol: OIDC
+      name: Company Keycloak
+      server_url: https://sso.example.com/realms/ptt
+      client_id: cvat-prod
+      client_secret: ${CVAT_KEYCLOAK_CLIENT_SECRET}
+      email_domain: company.example
+      authorization:
+        groups_claims: [groups]
+        case_sensitive: false
+        mapping:
+          - groups: [cvat-admins]
+            root_role: admin
+          - groups: [cvat-reviewers]
+            organization_slug: ptt-demo
+            organization_role: worker
+```
+
+ชื่อ field และรูปแบบ config ต้องยึดตาม version ที่ติดตั้งจริง ตรวจ `server_url + /.well-known/openid-configuration` ให้ตอบกลับ metadata ก่อน restart CVAT หลังแก้ config
+
+### การ map ผู้ใช้และสิทธิ์
+
+ใช้ email หรือ immutable subject (`sub`) เป็นตัวเชื่อมตัวตน อย่าใช้ display name เป็น key เมื่อ login ครั้งแรก CVAT อาจสร้าง local user ให้ จากนั้นจึงกำหนด Organization/role ตาม group mapping หรือ provisioning policy ของระบบ
+
+| Keycloak group | CVAT/Platform role ที่เสนอ |
+|---|---|
+| `platform-admins` | Platform admin และ CVAT admin ตามนโยบาย |
+| `cvat-annotators` | Worker/annotator |
+| `cvat-reviewers` | Reviewer หรือ worker ที่ได้รับ Job validation |
+| `cvat-coordinators` | Coordinator/ผู้จัดคิว |
+
+การมีบัญชีใน Keycloak ไม่ได้แปลว่ามีสิทธิ์กับทุก Project ใน CVAT ต้องกำหนด Organization membership, Project/Job assignment และ policy ใน Platform ให้ครบ
+
+### SSO กับ iframe
+
+SSO ช่วยลดการ login ซ้ำ แต่ iframe ยังต้องผ่าน CSP, cookie `SameSite`, third-party cookie policy และ `frame-ancestors` ของ CVAT/proxy หาก browser บล็อก cookie อาจเห็นหน้า login ซ้ำแม้ Keycloak session ยังอยู่ จึงควรทดสอบ deep link ก่อน และใช้ iframe เมื่อมีเหตุผลด้าน UX ชัดเจน
+
+### Logout และ session
+
+กำหนดว่า logout จาก Platform จะ logout CVAT และ Keycloak ด้วยหรือไม่ หากต้องการ single logout ต้องตั้งค่าลงทะเบียน redirect/logout URI ให้ครบและทดสอบ session timeout, refresh token, การปิดบัญชี และการเปลี่ยน group ทุกกรณี อย่าเก็บ OIDC access token ไว้ใน localStorage ของ browser
+
 ## 4. Data input: ข้อมูลเข้าระบบ
 
 ### 4.1 Dataset upload
@@ -365,4 +442,3 @@ Frontend ควรรู้ business IDs และสถานะของ Platf
 ## 13. สรุปสำหรับ developer
 
 ให้คิดว่า CVAT เป็น annotation engine ที่ติดตั้งอยู่ข้าง Platform ไม่ใช่ฐานข้อมูลที่ Platform ต้องเข้าไปแก้เอง Platform รับ dataset, จัดคิว, คุมสิทธิ์, กำหนด approval และสร้าง release ส่วน CVAT รับผิดชอบการวาดและตรวจ annotation การเชื่อมที่ยั่งยืนคือ API + Webhook + mapping database + object storage + versioned artifacts โดยเริ่มจาก deep link บนเครื่องเดียว แล้วค่อยแยก service เมื่อจำนวนผู้ใช้และงานเพิ่มขึ้น
-
