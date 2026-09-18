@@ -6,6 +6,8 @@
 
 ## เริ่มอ่าน
 
+สำหรับ Backend Developer ที่เชื่อม MinIO, API/SDK, Webhook, Keycloak และฐานข้อมูล: เริ่มที่ [คู่มือ End-to-End ฉบับ 18 กันยายน 2026](docs/CVAT-MINIO-BACKEND-END-TO-END-TH.md) ซึ่งแก้ข้อเข้าใจผิดเรื่อง remote storage, webhook payload และ token authentication จากบทสนทนาก่อนหน้า
+
 | ผู้อ่าน / เป้าหมาย | เอกสาร |
 |---|---|
 | คนทำ Annotation, Reviewer และ Coordinator | [คู่มือปฏิบัติการ](docs/CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md) |
