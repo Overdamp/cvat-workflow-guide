@@ -41,6 +41,12 @@ read -r -p 'วาง Run folder ที่สคริปต์แสดง: ' S
 
 mapped-shapes เป็นตัวอย่างสำหรับ shapes เท่านั้น tags/tracks ยังอยู่ครบใน annotations.json รูปไม่มีกรอบจะแสดงจำนวนศูนย์ได้
 
+### หมายเหตุสำหรับ Backend Database
+
+ไฟล์ `annotations.json`, `labels.json`, `media-meta.json`, `mapped-shapes.json` และ `state.json` ที่สคริปต์สร้างเป็นผลลัพธ์ชั่วคราวสำหรับการทดลอง ไม่ใช่ฐานข้อมูลที่ต้องเก็บซ้ำใน production Backend ควรอ่าน/แปลงข้อมูลเข้า memory หรือ temporary storage แล้วบันทึกลง Database เดิมของ Platform ด้วย transaction เมื่อ commit สำเร็จจึงลบไฟล์ชั่วคราวได้
+
+ก่อนบันทึกให้สร้าง `revision_id` หรือ `source_digest` และตรวจว่า revision นี้เคยประมวลผลแล้วหรือไม่ เพื่อไม่ให้รัน SDK ซ้ำแล้วเกิด annotation ซ้ำ หากบันทึกล้มเหลวให้เก็บไฟล์ไว้เพื่อ retry ห้าม mark processed หรือลบทิ้งก่อน transaction สำเร็จ การลบไฟล์เหล่านี้ไม่ลบภาพ/annotation ใน CVAT และไม่ลบต้นฉบับใน MinIO
+
 ## 5. ระบุเสร็จ (optional)
 
 ```bash

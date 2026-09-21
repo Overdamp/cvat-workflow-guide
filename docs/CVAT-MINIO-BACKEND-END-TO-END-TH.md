@@ -64,6 +64,12 @@ flowchart LR
 
 ไม่จำเป็นต้อง copy annotations ลง SQL ของ Platform ถ้าใช้เพียงส่ง train สามารถเก็บ annotation snapshot ใน MinIO และเก็บ URI/hash ใน DB ได้ ถ้าต้องค้นหาวัตถุหรือแสดงกรอบเองจึงเพิ่ม annotation tables/JSONB
 
+### Temporary output จาก SDK/worker
+
+ไฟล์ `annotations.json`, `labels.json`, `media-meta.json`, `mapped-shapes.json` และ `state.json` เป็นตัวอย่าง artifacts จากการทดลอง ไม่ควรกลายเป็นสำเนาถาวรทุกครั้งที่ sync ในระบบจริง worker ควรอ่านและแปลงข้อมูลเข้า memory หรือพื้นที่ชั่วคราว จากนั้นบันทึก annotation revision ลง Database เดิมด้วย transaction และลบไฟล์ชั่วคราวหลัง commit สำเร็จ
+
+ให้ตรวจ `revision_id`/`source_digest` ก่อน INSERT เพื่อให้การ retry เป็น idempotent ถ้า transaction ล้มเหลวให้เก็บไฟล์หรือสถานะ pending ไว้ retry ห้ามลบข้อมูลใน CVAT หรือภาพต้นฉบับใน MinIO และอย่าลบไฟล์ชั่วคราวก่อนยืนยันว่า database commit สำเร็จ การเก็บ revision ที่อนุมัติแล้วหรือ manifest/hash ถือเป็น audit/lineage ไม่ใช่ data bloat ที่ควรลบทั้งหมด
+
 ## 4. Authentication แบบง่ายสำหรับ PoC
 
 1. ผู้ใช้มีบัญชีของตัวเองใน CVAT และอยู่ Organization ที่กำหนด
