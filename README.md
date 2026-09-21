@@ -6,6 +6,8 @@
 
 **ทดลองเองบนเครื่อง luke:** [คำสั่งทีละขั้นพร้อม dataset path จริง](docs/CVAT-HANDS-ON-LOCAL-DATASET-TH.md)
 
+**ทดลองผ่าน Postman:** [Postman Workflow Guide](docs/CVAT-POSTMAN-WORKFLOW-GUIDE-TH.md) และ [Collection ที่ import ได้](examples/postman/CVAT-API-Workflow.postman_collection.json)
+
 
 **เริ่มลงมือเรียก API แบบง่าย โดยผู้ใช้สิทธิ์เท่ากัน:** [API Workflow Quickstart พร้อม curl](docs/CVAT-API-WORKFLOW-QUICKSTART-TH.md)
 

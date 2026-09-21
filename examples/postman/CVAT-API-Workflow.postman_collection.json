@@ -1,0 +1,59 @@
+{
+  "info": {
+    "name": "CVAT API Workflow - Equal Role PoC",
+    "description": "Create a project/task, upload two local images, wait for processing, read a job and annotations, then mark the job completed.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "cvat_base_url", "value": "http://localhost:8080"},
+    {"key": "cvat_org", "value": "ptt-demo"},
+    {"key": "cvat_pat", "value": ""},
+    {"key": "project_id", "value": ""},
+    {"key": "task_id", "value": ""},
+    {"key": "request_id", "value": ""},
+    {"key": "job_id", "value": ""}
+  ],
+  "item": [
+    {
+      "name": "01 - Check current user",
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}], "url": "{{cvat_base_url}}/api/users/self"}
+    },
+    {
+      "name": "02 - Create project",
+      "event": [{"listen": "test", "script": {"exec": ["pm.test('created', () => pm.expect(pm.response.code).to.be.oneOf([200,201]));", "const body = pm.response.json();", "pm.environment.set('project_id', body.id);"]}}],
+      "request": {"method": "POST", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}, {"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Postman API PoC\",\n  \"labels\": [\n    {\"name\": \"pump\", \"type\": \"rectangle\"},\n    {\"name\": \"valve\", \"type\": \"rectangle\"}\n  ]\n}"}, "url": "{{cvat_base_url}}/api/projects?org={{cvat_org}}"}
+    },
+    {
+      "name": "03 - Create task",
+      "event": [{"listen": "test", "script": {"exec": ["const body = pm.response.json();", "pm.environment.set('task_id', body.id);"]}}],
+      "request": {"method": "POST", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}, {"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"postman-two-images\",\n  \"project_id\": {{project_id}},\n  \"segment_size\": 20\n}"}, "url": "{{cvat_base_url}}/api/tasks?org={{cvat_org}}"}
+    },
+    {
+      "name": "04 - Upload local images",
+      "event": [{"listen": "test", "script": {"exec": ["const body = pm.response.json();", "pm.environment.set('request_id', body.rq_id);"]}}],
+      "request": {"method": "POST", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}], "body": {"mode": "formdata", "formdata": [{"key": "image_quality", "value": "85", "type": "text"}, {"key": "client_files[0]", "type": "file", "src": ""}, {"key": "client_files[1]", "type": "file", "src": ""}]}, "url": "{{cvat_base_url}}/api/tasks/{{task_id}}/data?org={{cvat_org}}"}
+    },
+    {
+      "name": "05 - Get request status",
+      "event": [{"listen": "test", "script": {"exec": ["const body = pm.response.json();", "pm.test('request status', () => pm.expect(body.status).to.be.oneOf(['queued','started','finished','failed']));"]}}],
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}], "url": "{{cvat_base_url}}/api/requests/{{request_id}}?org={{cvat_org}}"}
+    },
+    {
+      "name": "06 - List jobs (one annotation job)",
+      "event": [{"listen": "test", "script": {"exec": ["const body = pm.response.json();", "const jobs = body.results.filter(j => j.type === 'annotation');", "pm.test('one annotation job', () => pm.expect(jobs).to.have.lengthOf(1));", "if (jobs.length === 1) pm.environment.set('job_id', jobs[0].id);"]}}],
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}], "url": "{{cvat_base_url}}/api/jobs?task_id={{task_id}}&org={{cvat_org}}&page_size=100"}
+    },
+    {
+      "name": "07 - Get media metadata",
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}], "url": "{{cvat_base_url}}/api/tasks/{{task_id}}/data/meta?org={{cvat_org}}"}
+    },
+    {
+      "name": "08 - Get annotations after Save",
+      "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}], "url": "{{cvat_base_url}}/api/jobs/{{job_id}}/annotations?org={{cvat_org}}"}
+    },
+    {
+      "name": "09 - Complete job",
+      "request": {"method": "PATCH", "header": [{"key": "Authorization", "value": "Bearer {{cvat_pat}}"}, {"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"stage\": \"annotation\",\n  \"state\": \"completed\"\n}"}, "url": "{{cvat_base_url}}/api/jobs/{{job_id}}?org={{cvat_org}}"}
+    }
+  ]
+}

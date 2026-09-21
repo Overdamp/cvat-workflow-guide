@@ -23,6 +23,7 @@
 | [CVAT Developer Guideline: ระบบจัดคิว Annotation, QA และ Dataset Release](docs/CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md) | `docs/CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md` | กติกา workflow/queue; schema เป็นข้อเสนอ |
 | [ทดลอง CVAT API ทีละขั้นด้วยภาพจาก dataset ในเครื่อง](docs/CVAT-HANDS-ON-LOCAL-DATASET-TH.md) | `docs/CVAT-HANDS-ON-LOCAL-DATASET-TH.md` | ทดลองทีละขั้นด้วยภาพจริงจาก dataset ในเครื่อง luke |
 | [เรียก CVAT API เพื่อดูสถานะงานและคิว QA](docs/CVAT-JOB-STATUS-API-GUIDE-TH.md) | `docs/CVAT-JOB-STATUS-API-GUIDE-TH.md` | อ่านสถานะและสร้างรายงานผ่าน API |
+| [ทดลองสั่ง CVAT ผ่าน Postman](docs/CVAT-POSTMAN-WORKFLOW-GUIDE-TH.md) | `docs/CVAT-POSTMAN-WORKFLOW-GUIDE-TH.md` | ทดลอง REST API ผ่าน Postman แบบเรียงลำดับ |
 | [คู่มือปฏิบัติการ CVAT: Workflow Annotation และ QA](docs/CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md) | `docs/CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md` | ขั้นตอนของ Annotator/Reviewer/Coordinator |
 
 ## ฐานข้อมูล
