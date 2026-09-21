@@ -52,5 +52,6 @@
 | เอกสาร | ไฟล์ | การใช้งาน |
 |---|---|---|
 | [ดูแลและเพิ่มคู่มือ](CONTRIBUTING.md) | `CONTRIBUTING.md` | ตรวจขอบเขตและสถานะในไฟล์; จัดกลุ่มเพิ่มได้ในสคริปต์ |
+| [ตารางตัดสินใจเลือก Annotation Tool](docs/ANNOTATION-TOOL-SELECTION-MATRIX-TH.md) | `docs/ANNOTATION-TOOL-SELECTION-MATRIX-TH.md` | ตรวจขอบเขตและสถานะในไฟล์; จัดกลุ่มเพิ่มได้ในสคริปต์ |
 | [ทดลอง Python SDK ด้วย dataset เดิม](docs/CVAT-SDK-HANDS-ON-TH.md) | `docs/CVAT-SDK-HANDS-ON-TH.md` | ตรวจขอบเขตและสถานะในไฟล์; จัดกลุ่มเพิ่มได้ในสคริปต์ |
 
