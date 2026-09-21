@@ -4,9 +4,19 @@
 
 ## ข้อสรุปสำหรับโครงการปัจจุบัน
 
-แนะนำ **CVAT Community แบบ self-hosted** เป็น annotation engine ของแพลตฟอร์มในระยะนี้ เพราะทีมติดตั้งและทดสอบ workflow จริงแล้ว ตั้งแต่ Project → Task → Job → annotation → review/issue → complete และมี Docker, REST API, Python SDK, webhook, งานหลายผู้ใช้ และการนำเข้า/ส่งออก dataset ที่สอดคล้องกับแผน MinIO + backend database ของเรา
+แนะนำ **CVAT Community แบบ self-hosted** เป็น annotation engine ของแพลตฟอร์มในระยะนี้ เพราะทีมติดตั้งและทดสอบ workflow จริงแล้ว ตั้งแต่ Project → Task → Job → annotation → review/issue → complete และมี Docker, REST API, Python SDK, webhook, งานหลายผู้ใช้ และการนำเข้า/ส่งออก dataset ที่สอดคล้องกับแผน MinIO + backend database ของเรา ตัว core ของ CVAT Community เป็น MIT License และมี API/SDK สำหรับ integration ([CVAT repository](https://github.com/cvat-ai/cvat), [CVAT Developer Documentation](https://docs.cvat.ai/docs/api_sdk/))
 
 การเลือกนี้ไม่ได้หมายความว่า CVAT เหมาะกับทุกงาน หากโจทย์เปลี่ยนเป็นบริการ SaaS ที่ต้องการลดภาระดูแลระบบ, งาน NLP/multimodal เป็นหลัก, หรือแพลตฟอร์มที่ต้องการ active learning และ model lifecycle แบบสำเร็จรูป อาจต้องประเมินเครื่องมืออื่นใหม่
+
+## ขอบเขตการคัดเลือกแบบ Open Source
+
+การประชุมครั้งนี้ให้ความสำคัญกับซอร์สโค้ดที่ตรวจสอบได้, self-host ได้, ควบคุมข้อมูลใน network ขององค์กร และเชื่อมกับ backend ของเราได้ จึงแบ่งเครื่องมือเป็น 3 กลุ่ม:
+
+1. **ตัวเลือกหลักแบบ open source/self-host**: CVAT, Label Studio, doccano, LabelMe และ FiftyOne
+2. **ตัวเลือกที่มี open-source component แต่ต้องตรวจ edition/license ของ platform**: Supervisely
+3. **เครื่องมือ managed/commercial ที่ใช้เป็น benchmark ได้ แต่ไม่ใช่ตัวเลือกหลักตามเกณฑ์นี้**: V7 Darwin, Labelbox และ Roboflow
+
+คำว่า open source ไม่ได้แปลว่าฟีเจอร์ทุกอย่างของทุก edition ใช้ได้ฟรีหรือมี license เดียวกันทั้งหมด ต้องตรวจ repository, license, รุ่นที่ติดตั้ง และเงื่อนไขของ dependency ก่อนนำไปผลิตจริง
 
 ## เครื่องมือที่นำมาเปรียบเทียบ
 
@@ -39,6 +49,23 @@ CVAT มี integration layer เป็น REST API + Swagger, Python SDK แล
 | ต้นทุนและภาระดูแลระบบ | 15% | **4** | 4 | 3 | 2 | 4 | PoC ใช้เครื่องที่มีอยู่ได้ แต่ต้องประเมิน backup, upgrade และ monitoring |
 
 คะแนนเป็นการประเมินเชิงสถาปัตยกรรมสำหรับโครงการนี้ ควรปรับน้ำหนักหากผู้บริหารให้ความสำคัญกับ SaaS, จำนวนผู้ใช้, SLA, หรือความสามารถด้านข้อมูลชนิดอื่นมากกว่าการควบคุมข้อมูล
+
+## ตารางความเข้ากันได้กับ flow ของเรา
+
+คะแนน: 5 = ตรงกับ flow และทำได้โดยตรง, 3 = ทำได้แต่ต้องเขียน adapter/ตั้งค่าเพิ่ม, 1 = ไม่ใช่บทบาทของเครื่องมือ
+
+| เครื่องมือ | Backend DB ของเรา | MinIO/S3 | REST API/SDK | Webhook/event | Keycloak/OIDC | Multi-user review | บทบาทที่แนะนำ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| **CVAT Community** | **5** | **4** | **5** | **5** | 3* | **5** | Annotation engine หลัก |
+| **Label Studio OSS** | 5 | **4** | **5** | **5** | 3* | 4 | ทางเลือกหลักอันดับสอง โดยเฉพาะงานหลายชนิดข้อมูล |
+| **doccano** | 4 | 3 | 4 | 3 | 3* | 4 | Text/NLP annotation service แยกต่างหาก |
+| **LabelMe** | 2 | 1 | 1 | 1 | 1 | 1 | Local utility สำหรับผู้ใช้คนเดียว/แปลงไฟล์ |
+| **FiftyOne** | 4 | **5** | 4 | 2 | 2 | 2 | Dataset curation, QA และ model evaluation |
+| **Supervisely** | 4 | 4 | 4 | 4 | 3* | 5 | พิจารณาเมื่อซื้อ/ใช้ platform edition ที่รองรับองค์กร |
+
+\* Keycloak: คะแนนนี้หมายถึงต้องตรวจวิธี OIDC/SAML ของรุ่นที่ใช้และการแมป role เพิ่มเติม ไม่ควรถือว่า Keycloak JWT จาก platform จะใช้เป็น CVAT API token ได้โดยอัตโนมัติ ใน PoC ให้หน้าเว็บใช้ SSO ตามความสามารถของ deployment และให้ backend ใช้ PAT/service account แยกเก็บใน secret manager
+
+รูปแบบ flow ที่ทุกตัวเลือกต้องรองรับคือ `MinIO → backend สร้าง task → annotator ทำงาน → event/webhook → backend อ่าน annotation ผ่าน API → upsert ลง backend DB → สร้าง dataset release` โดยไม่เขียนตารางภายในของ annotation tool โดยตรง
 
 ## ตารางคัดกรองเครื่องมือเพิ่มเติม
 
