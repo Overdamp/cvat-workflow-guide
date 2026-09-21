@@ -4,6 +4,9 @@
 
 ## เริ่มอ่านตามหน้าที่
 
+**ทดลองเองบนเครื่อง luke:** [คำสั่งทีละขั้นพร้อม dataset path จริง](docs/CVAT-HANDS-ON-LOCAL-DATASET-TH.md)
+
+
 **เริ่มลงมือเรียก API แบบง่าย โดยผู้ใช้สิทธิ์เท่ากัน:** [API Workflow Quickstart พร้อม curl](docs/CVAT-API-WORKFLOW-QUICKSTART-TH.md)
 
 
