@@ -4,7 +4,7 @@ import ast
 import getpass
 import json
 import os
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from cvat_sdk import make_client
@@ -14,8 +14,16 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DATASET = Path('/home/luke/ai_training/codex_ptt_inspection/datasets/overall-ptt-object-detection.v11i.yolov11')
 
 
+def json_default(value):
+    if isinstance(value, (datetime, date)):
+        return value.isoformat()
+    raise TypeError(f'Object of type {type(value).__name__} is not JSON serializable')
+
+
 def save(path, data):
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
+    # SDK to_dict() preserves Python dates; serialize before opening the file.
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2, default=json_default),
+                    encoding='utf-8')
 
 
 def main():
