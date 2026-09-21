@@ -4,11 +4,13 @@
 
 > ใช้อ่านและ monitor เท่านั้น ควรแก้ไขข้อมูลผ่าน CVAT REST API ไม่ควรแก้ตารางโดยตรง เพราะอาจทำให้ cache, storage และข้อมูล annotation ไม่สอดคล้องกัน
 
-## คำสั่งสร้างเอกสารใหม่
+## ส่งออก SQL schema snapshot
 
 ```bash
 docker compose exec -T cvat_db pg_dump -U root -d cvat --schema-only --no-owner > cvat-schema.sql
 ```
+
+คำสั่งด้านบนสร้าง SQL ไม่ได้สร้าง Markdown นี้ใหม่ เอกสารนี้เป็น snapshot วันที่ 17 กันยายน 2026 แสดงชื่อคอลัมน์/ชนิดพื้นฐาน/Nullable/Default แต่ยังไม่ครอบคลุมความยาว varchar, identity, constraints และ indexes ทั้งหมด หากต้องใช้ DDL ที่ครบให้ตรวจ SQL dump และ `\d+`
 
 ## ตารางและคอลัมน์ทั้งหมด
 
@@ -858,7 +860,7 @@ docker compose exec -T cvat_db pg_dump -U root -d cvat --schema-only --no-owner 
 
 ```bash
 # ดูคอลัมน์, index และ foreign key
-docker compose exec -T cvat_db psql -U root -d cvat -c '\\d+ engine_job'
+docker compose exec -T cvat_db psql -U root -d cvat -c '\d+ engine_job'
 
 # ดู foreign key ทุกตาราง
  docker compose exec -T cvat_db psql -U root -d cvat -c "SELECT tc.table_name,kcu.column_name,ccu.table_name AS referenced_table,ccu.column_name AS referenced_column FROM information_schema.table_constraints tc JOIN information_schema.key_column_usage kcu ON tc.constraint_name=kcu.constraint_name AND tc.table_schema=kcu.table_schema JOIN information_schema.constraint_column_usage ccu ON ccu.constraint_name=tc.constraint_name AND ccu.table_schema=tc.table_schema WHERE tc.constraint_type='FOREIGN KEY' AND tc.table_schema='public' ORDER BY tc.table_name;"

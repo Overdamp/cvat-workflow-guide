@@ -4,6 +4,12 @@
 
 > สถานะอ้างอิงปัจจุบัน: การทดลอง Job #2 ดำเนินครบวงจรแล้ว โดย `annotator01` ทำ annotation, `reviewer01` ตรวจและเปิด Issue 1 จุด, annotator แก้ไข, reviewer Resolve Issue และ Coordinator ตรวจรับเป็น `Acceptance / Completed` ไฟล์ export ที่ตรวจแล้วมี 20 ภาพ, 241 annotations และ 26 classes
 
+## ใช้งานผ่าน Platform ทดลอง
+
+รัน `node prototype/server.cjs` จาก repository แล้วเปิด http://localhost:5175/platform/ (ไม่ใช่ Python static server พอร์ต 5173) Login ด้วยบัญชี CVAT จริง เลือก Job, Save ก่อนส่ง QA และ Resolve Issue ใน editor ดู [วิธีรันและขอบเขตการทดสอบ](../prototype/README.md) ปุ่มเปลี่ยน workflow ใช้ API จริง แต่ยังไม่มี SSO/Webhook/Release service
+
+ข้อมูล Job #2 และรายงานด้านล่างเป็นผลทดลองวันที่ 16–17 กันยายน 2026 ไม่ใช่สถานะสด ใช้ Job ใหม่สำหรับทดสอบรอบใหม่
+
 ## 1. ขอบเขตและตัวอย่างที่ใช้
 
 ระบบทดลองเปิดที่ `http://localhost:8080` และใช้ข้อมูลดังนี้:
@@ -26,7 +32,7 @@
 | `annotator02` | รับงาน annotation เพิ่ม | Worker |
 | `reviewer01` | QA, Issue และตรวจรับ | Worker |
 
-ถ้า Platform ใช้ Keycloak ให้ผู้ใช้ login ผ่าน OIDC SSO ก่อนเปิด CVAT ได้ โดยไม่ต้องสร้างรหัสผ่านซ้ำ แต่ยังต้องมี Organization membership และ Job assignment ใน CVAT
+เมื่อ edition/deployment รองรับและตั้งค่า Keycloak SSO สำเร็จ จึงให้ผู้ใช้ login ผ่าน OIDC SSO ก่อนเปิด CVAT ได้ โดยไม่ต้องสร้างรหัสผ่านซ้ำ แต่ยังต้องมี Organization membership และ Job assignment ใน CVAT
 
 รหัสผ่าน `<YOUR_TEST_PASSWORD>` ใช้เฉพาะเครื่องทดลอง ควรใช้รหัสส่วนตัวในระบบจริง
 

@@ -2,6 +2,10 @@
 
 เอกสารนี้เป็นแนวทางสำหรับสร้างแพลตฟอร์ม AI แบบ Roboflow โดยให้แพลตฟอร์มเป็นเจ้าของ dataset, workflow และ training ส่วน CVAT เป็นบริการสำหรับวาด annotation และตรวจสอบคุณภาพ การติดตั้งระยะแรกสามารถอยู่บนเครื่องเดียวกันได้ แต่ควรแบ่งขอบเขตบริการและข้อมูลตั้งแต่ต้น เพื่อให้ย้ายไปหลายเครื่องหรือ Kubernetes ได้ภายหลัง
 
+> เอกสารภาพรวมผลิตภัณฑ์ ส่วน API/SDK/MinIO/DB ให้ยึด [คู่มือ Backend](CVAT-MINIO-BACKEND-END-TO-END-TH.md) และเรื่อง consistency ให้ดู [Integration contract](CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
+
+สถานะ ณ การทบทวน 22 กันยายน 2026: มี prototype แบบ iframe ผ่าน local proxy แล้ว แต่ยังไม่มี Keycloak SSO, durable webhook inbox และ release service ที่ติดตั้งครบวงจร
+
 ## 1. หลักการออกแบบ
 
 1. แพลตฟอร์มหลักเป็น **system of record ของ business workflow** เช่น work order, priority, SLA, release และ training run
@@ -109,7 +113,7 @@ sso:
       name: Company Keycloak
       server_url: https://sso.example.com/realms/ptt
       client_id: cvat-prod
-      client_secret: ${CVAT_KEYCLOAK_CLIENT_SECRET}
+      client_secret: "<RENDER_SECRET_AT_DEPLOY_TIME>"
       email_domain: company.example
       authorization:
         groups_claims: [groups]
@@ -121,6 +125,8 @@ sso:
             organization_slug: ptt-demo
             organization_role: worker
 ```
+
+ตัวอย่าง YAML เป็น template ต้องให้ระบบ deployment แทนค่า secret ก่อนใช้งาน ไม่สมมติว่า CVAT ขยาย environment variable ในไฟล์ YAML เอง Browser SSO ไม่ทำให้ REST API รับ Keycloak JWT แทน CVAT PAT อัตโนมัติ
 
 ชื่อ field และรูปแบบ config ต้องยึดตาม version ที่ติดตั้งจริง ตรวจ `server_url + /.well-known/openid-configuration` ให้ตอบกลับ metadata ก่อน restart CVAT หลังแก้ config
 
@@ -231,8 +237,8 @@ Platform สร้าง Project/Task และส่งไฟล์ให้ CV
 Platform อ่านผ่าน API:
 
 ```http
-GET /api/jobs?org=1&page_size=100
-GET /api/issues?org=1&job_id=2&resolved=false
+GET /api/jobs?org=ptt-demo&page_size=100
+GET /api/issues?org=ptt-demo&job_id=2&resolved=false
 ```
 
 ข้อมูลที่ควรนำมาเก็บเป็น projection:
@@ -269,7 +275,7 @@ CVAT export → temporary file → validate → canonical artifact
   "release_id": "rel_01J...",
   "dataset_version_id": "dsv_01J...",
   "source_cvat": {"project_id": 3, "task_id": 2, "job_ids": [2]},
-  "format": "YOLO 1.1",
+  "format": "Ultralytics YOLO Detection 1.0",
   "artifact_uri": "s3://ai-data/releases/rel_01J.zip",
   "sha256": "...",
   "image_count": 20,
@@ -284,7 +290,7 @@ CVAT export → temporary file → validate → canonical artifact
 
 ### 5.3 Training input
 
-Training Service ควรรับ `release_id` ไม่รับ path ของ CVAT โดยตรง:
+Training Service ควรรับ `release_id` ซึ่งอ้าง originals ใน MinIO และ annotation snapshot ที่อนุมัติแล้วได้ ไม่จำเป็นต้องสร้าง ZIP ทุก release สร้าง COCO/YOLO export เมื่อ consumer ต้องใช้เท่านั้น:
 
 ```json
 {
@@ -295,7 +301,7 @@ Training Service ควรรับ `release_id` ไม่รับ path ขอ�
 }
 ```
 
-Worker ดึง artifact จาก object storage ด้วย short-lived credentials และบันทึก code version, container image, parameters, metrics และ model URI กลับเป็น Training Run
+Worker อ่าน manifest และไฟล์ที่อ้างอิง หรือดึง export artifact หาก release ใช้รูปแบบ package จาก object storage ด้วย short-lived credentials และบันทึก code version, container image, parameters, metrics และ model URI กลับเป็น Training Run
 
 ## 6. ฐานข้อมูลของ Platform ที่ควรมี
 
@@ -434,7 +440,7 @@ Frontend ควรรู้ business IDs และสถานะของ Platf
 - CVAT Task/Job mapping ครบ
 - งาน annotation ผ่าน reviewer policy
 - open Issues ถูกจัดการตามกติกา
-- export parse ได้ด้วยตัว parser ของ format นั้น
+- annotation snapshot ผ่าน validation; หากมี export ต้อง parse ได้ด้วย parser ของ format นั้น
 - จำนวนภาพและ annotation ตรงกับที่คาดหมาย
 - class mapping ถูกบันทึก
 - release เป็น immutable และมีผู้อนุมัติ

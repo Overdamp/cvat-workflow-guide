@@ -17,7 +17,7 @@ CVAT เป็นระบบหลักสำหรับภาพ, annotation
 
 ห้ามออกแบบให้ Platform export ZIP ทุกครั้งที่ต้องการดูสถานะ เพราะเป็น snapshot ที่ทำให้ storage และข้อมูลซ้ำเพิ่มขึ้น ให้ใช้ Job/Issue API และ Webhook สำหรับสถานะ แล้ว export เฉพาะตอนสร้าง Dataset Release หรือส่งเข้า training
 
-หาก Platform ใช้ Keycloak ให้เชื่อม CVAT ผ่าน OIDC SSO เพื่อให้ผู้ใช้ไม่ต้อง login ซ้ำ แต่ยังต้อง provision Organization membership, Project/Job permission และ mapping ของกลุ่มผู้ใช้แยกจากการยืนยันตัวตน ดูรายละเอียดใน [AI Platform + CVAT Architecture](AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md#31-ใช้-keycloak-ทำ-sso-ร่วมกับ-platform)
+หาก edition/deployment รองรับ SSO และตั้งค่าสำเร็จ ให้เชื่อม CVAT ผ่าน OIDC SSO เพื่อให้ผู้ใช้ไม่ต้อง login ซ้ำ แต่ยังต้อง provision Organization membership, Project/Job permission และ mapping ของกลุ่มผู้ใช้แยกจากการยืนยันตัวตน ดูรายละเอียดใน [AI Platform + CVAT Architecture](AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md#31-ใช้-keycloak-ทำ-sso-ร่วมกับ-platform)
 
 ## 2. ขอบเขตข้อมูลอ้างอิง
 
@@ -313,7 +313,7 @@ GET /api/requests
 ```sql
 UPDATE work_items
 SET current_assignee_id = :user,
-    business_status = 'annotating',
+    business_status = 'claim_pending',
     row_version = row_version + 1
 WHERE id = :id
   AND business_status = 'unassigned'
@@ -321,6 +321,8 @@ WHERE id = :id
 ```
 
 ถ้า affected rows เป็นศูนย์ ให้ตอบว่างานถูก claim ไปแล้ว ห้ามเรียก CVAT ซ้ำโดยคิดว่าสำเร็จ
+
+หลัง claim ให้เก็บ command/outbox ใน transaction เดียวกัน แล้ว worker เรียก CVAT API และอ่านยืนยัน จึงเปลี่ยนเป็น `annotating` หากล้มเหลวให้คงสถานะ pending/retry หรือ sync_failed และบันทึกเหตุผล ไม่ประกาศว่ามอบหมายสำเร็จก่อน CVAT ยืนยัน ต้องเพิ่มสถานะเหล่านี้ใน state machine/validation ของ implementation ด้วย SQL นี้จองเฉพาะ local record ไม่ใช่ distributed transaction
 
 ### 8.3 Review routing
 

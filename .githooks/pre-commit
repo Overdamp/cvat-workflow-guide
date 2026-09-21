@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+cd "$(git rev-parse --show-toplevel)"
+python3 scripts/update_docs_index.py
+git add -- DOCS-INDEX.md

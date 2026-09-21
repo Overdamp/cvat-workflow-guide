@@ -5,6 +5,8 @@
 
 เอกสารนี้บันทึกแนวทาง integration ที่อภิปรายจากการทดลอง CVAT ของทีม เป็นข้อเสนอเชิงสถาปัตยกรรม ไม่ใช่ผลสำรวจว่าส่วนใหญ่ของบริษัทใช้รูปแบบใด และไม่ใช่การยืนยันว่าระบบ integration ถูกพัฒนาแล้ว
 
+> ขอบเขตฉบับนี้คือ integration contract: consistency, retry, outbox/inbox และ release approval ส่วนตัวอย่าง API/SDK/MinIO ให้ดู [คู่มือ Backend](CVAT-MINIO-BACKEND-END-TO-END-TH.md) ส่วนการรัน iframe ที่มีอยู่แล้วดู [Prototype](../prototype/README.md)
+
 ## 1. ข้อเสนอสำหรับโครงการนี้
 
 แยก CVAT เป็นบริการสำหรับ annotation และ review แล้วเชื่อมกับแพลตฟอร์มหลักผ่าน API/SDK และ Webhook ผู้ใช้เปิดหน้าแก้ภาพผ่าน deep link ส่วนคิวงาน กำหนดส่ง และ dataset release อยู่ในแพลตฟอร์ม
