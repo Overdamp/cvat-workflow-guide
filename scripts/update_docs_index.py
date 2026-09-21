@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / 'DOCS-INDEX.md'
 GROUPS = ['คู่มือหลัก', 'คู่มือใช้งานและ API', 'ฐานข้อมูล', 'ระบบทดลองและตัวอย่าง', 'เอกสารประวัติ / ลิงก์ย้าย', 'เอกสารอื่นและไฟล์ใหม่']
 KNOWN = {
+ 'docs/CVAT-API-WORKFLOW-QUICKSTART-TH.md': (1, 'คำสั่ง curl ตั้งแต่สร้าง Project จนดึงผล; PoC สิทธิ์เท่ากัน'),
  'README.md': (0, 'จุดเริ่มต้นและสถานะโครงการ'),
  'docs/CVAT-MINIO-BACKEND-END-TO-END-TH.md': (0, 'ข้อกำหนดหลักสำหรับ Backend; MinIO/API/SDK/Webhook/DB/Auth'),
  'docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md': (0, 'ภาพรวมผลิตภัณฑ์และสถาปัตยกรรมเป้าหมาย'),

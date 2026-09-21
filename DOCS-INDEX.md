@@ -19,6 +19,7 @@
 
 | เอกสาร | ไฟล์ | การใช้งาน |
 |---|---|---|
+| [API Workflow แบบง่าย: สั่ง CVAT ตั้งแต่สร้างงานจนรับผล](docs/CVAT-API-WORKFLOW-QUICKSTART-TH.md) | `docs/CVAT-API-WORKFLOW-QUICKSTART-TH.md` | คำสั่ง curl ตั้งแต่สร้าง Project จนดึงผล; PoC สิทธิ์เท่ากัน |
 | [CVAT Developer Guideline: ระบบจัดคิว Annotation, QA และ Dataset Release](docs/CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md) | `docs/CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md` | กติกา workflow/queue; schema เป็นข้อเสนอ |
 | [เรียก CVAT API เพื่อดูสถานะงานและคิว QA](docs/CVAT-JOB-STATUS-API-GUIDE-TH.md) | `docs/CVAT-JOB-STATUS-API-GUIDE-TH.md` | อ่านสถานะและสร้างรายงานผ่าน API |
 | [คู่มือปฏิบัติการ CVAT: Workflow Annotation และ QA](docs/CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md) | `docs/CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md` | ขั้นตอนของ Annotator/Reviewer/Coordinator |

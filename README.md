@@ -4,6 +4,9 @@
 
 ## เริ่มอ่านตามหน้าที่
 
+**เริ่มลงมือเรียก API แบบง่าย โดยผู้ใช้สิทธิ์เท่ากัน:** [API Workflow Quickstart พร้อม curl](docs/CVAT-API-WORKFLOW-QUICKSTART-TH.md)
+
+
 1. Backend Developer: [MinIO → CVAT → Platform Database](docs/CVAT-MINIO-BACKEND-END-TO-END-TH.md)
 2. ออกแบบผลิตภัณฑ์: [AI Platform Architecture](docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md)
 3. ออกแบบความสอดคล้องของบริการ: [Integration Contract](docs/CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
