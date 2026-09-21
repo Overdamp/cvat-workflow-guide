@@ -16,6 +16,10 @@
 | **Label Studio** | Labeling interface ที่ปรับแต่งได้มาก รองรับหลายชนิดข้อมูลและ integration ผ่าน API/webhook | งาน image, text, audio หรือ multimodal ที่ต้องออกแบบ labeling UI เอง |
 | **Roboflow Annotate** | Managed computer-vision platform เชื่อม dataset versioning และการ train/model workflow | ทีมที่ต้องการเริ่มเร็วและใช้บริการจัดการ dataset/model แบบครบวงจร |
 | **Supervisely** | Visual data platform สำหรับ annotation, apps, automation และการจัดการข้อมูลทีม | องค์กรที่ต้องการ platform สำเร็จรูปและยอมรับการพึ่งพา ecosystem/แผนบริการ |
+| **V7 Darwin** | Managed visual-data platform ที่เน้น annotation, automation และ dataset/model workflow | องค์กรที่ต้องการบริการพร้อมใช้และ automation ระดับ production |
+| **Labelbox** | Managed data-labeling และ AI lifecycle platform พร้อม API/SDK และ workflow สำหรับทีม | ทีมที่ต้องการ SaaS, collaboration และบริการจัดการข้อมูลแบบองค์กร |
+| **LabelMe** | Desktop/Python GUI สำหรับวาด polygon, rectangle, circle, line และ point | นักวิจัยหรือผู้ใช้รายเดียวที่ต้องการ annotate แบบ local อย่างรวดเร็ว |
+| **doccano** | Web tool แบบ open source สำหรับ text classification, sequence labeling และ text-to-text | งาน NLP และการทำ label ข้อความ ไม่ใช่ตัวเลือกหลักสำหรับภาพอุตสาหกรรม |
 | **FiftyOne** | Dataset/model exploration, evaluation และ visualization; เชื่อม annotation backend ได้ | วิเคราะห์ dataset และผลโมเดล ไม่ใช่ตัวเลือกหลักสำหรับ workflow annotation ของเรา |
 
 CVAT มี integration layer เป็น REST API + Swagger, Python SDK และ CLI รวมทั้งระบุว่าควรจับคู่ major/minor version ของ server กับ SDK/CLI ให้ตรงกัน ([CVAT Developer Documentation](https://docs.cvat.ai/docs/api_sdk/)) Label Studio มี API สำหรับ import/export, cloud storage และ ML integration และมี webhook สำหรับแจ้งเหตุการณ์ไปยัง pipeline ([Label Studio API](https://labelstud.io/guide/api), [Label Studio webhooks](https://labelstud.io/guide/webhooks.html))
@@ -35,6 +39,20 @@ CVAT มี integration layer เป็น REST API + Swagger, Python SDK แล
 | ต้นทุนและภาระดูแลระบบ | 15% | **4** | 4 | 3 | 2 | 4 | PoC ใช้เครื่องที่มีอยู่ได้ แต่ต้องประเมิน backup, upgrade และ monitoring |
 
 คะแนนเป็นการประเมินเชิงสถาปัตยกรรมสำหรับโครงการนี้ ควรปรับน้ำหนักหากผู้บริหารให้ความสำคัญกับ SaaS, จำนวนผู้ใช้, SLA, หรือความสามารถด้านข้อมูลชนิดอื่นมากกว่าการควบคุมข้อมูล
+
+## ตารางคัดกรองเครื่องมือเพิ่มเติม
+
+ตารางนี้ช่วยป้องกันการนำเครื่องมือคนละประเภทมาเทียบกันโดยตรงกับ CVAT
+
+| เครื่องมือ | ควบคุมระบบเอง | API/automation | Workflow ทีมและ QA | ประเภทข้อมูลเด่น | ข้อจำกัดเมื่อเทียบกับโครงการนี้ |
+| --- | ---: | ---: | ---: | --- | --- |
+| **V7 Darwin** | 2 | 5 | 5 | Image/video และ visual AI | เป็น managed platform; ต้องตรวจเรื่อง data residency, ราคา และการเชื่อม MinIO ตามแผนบริการ |
+| **Labelbox** | 2 | 5 | 5 | Image, video, text และ AI lifecycle | เหมาะกับ SaaS องค์กร แต่มี vendor lock-in และค่าใช้บริการที่ต้องประเมิน |
+| **LabelMe** | 5 | 2 | 1 | Image บนเครื่องเดียว | ไม่มี server workflow, assignment, webhook หรือ multi-user review แบบที่ต้องใช้ |
+| **doccano** | 4 | 4 | 3 | Text classification, sequence labeling, text-to-text | เหมาะกับ NLP; ไม่ใช่เครื่องมือหลักสำหรับ bounding box/segmentation ภาพอุตสาหกรรม |
+| **FiftyOne** | 5 | 4 | 2 | Dataset exploration และ model evaluation | ควรใช้เสริม CVAT เพื่อวิเคราะห์ข้อมูล ไม่ควรใช้แทน annotation engine หลัก |
+
+ข้อมูลประกอบการจัดกลุ่ม: V7 มีเอกสาร API และ Darwin JSON ของตนเอง ([V7 Darwin Documentation](https://docs.v7labs.com/), [Darwin JSON](https://docs.v7labs.com/reference/darwin-json)); Labelbox มี API/SDK และ webhook ([Labelbox platform](https://docs.labelbox.com/docs), [Labelbox annotations](https://docs.labelbox.com/reference/create-and-import-annotations)); LabelMe เป็นแอป GUI ที่เขียนด้วย Python/Qt และรองรับรูปทรงพื้นฐาน ([LabelMe repository](https://github.com/wkentaro/labelme)); doccano มี backend REST API และ client สำหรับงาน text ([doccano developer guide](https://doccano.github.io/doccano/developer_guide/)); FiftyOne ทำหน้าที่ dataset/model analysis และเชื่อม annotation backend มากกว่าจะเป็นระบบจัดงาน annotation หลัก
 
 ## เหตุผลที่เลือก CVAT ตอนนี้
 
@@ -78,4 +96,7 @@ CVAT มี integration layer เป็น REST API + Swagger, Python SDK แล
 - [Label Studio external storage](https://labelstud.io/guide/storage.html)
 - [Roboflow Documentation](https://docs.roboflow.com/)
 - [Supervisely Documentation](https://docs.supervisely.com/)
-
+- [V7 Darwin Documentation](https://docs.v7labs.com/)
+- [Labelbox Documentation](https://docs.labelbox.com/docs)
+- [LabelMe repository](https://github.com/wkentaro/labelme)
+- [doccano Developer Guide](https://doccano.github.io/doccano/developer_guide/)
