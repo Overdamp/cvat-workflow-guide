@@ -11,6 +11,8 @@
 
 **เริ่มลงมือเรียก API แบบง่าย โดยผู้ใช้สิทธิ์เท่ากัน:** [API Workflow Quickstart พร้อม curl](docs/07_CVAT-API-WORKFLOW-QUICKSTART-TH.md)
 
+**อ้างอิง API แบบ interactive:** [CVAT API Docs](https://app.cvat.ai/api/docs/) หรือใช้ `http://localhost:8080/api/docs/` เมื่อทดสอบ CVAT local
+
 
 1. Backend Developer: [MinIO → CVAT → Platform Database](docs/03_CVAT-MINIO-BACKEND-END-TO-END-TH.md)
 2. ออกแบบผลิตภัณฑ์: [AI Platform Architecture](docs/01_AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md)

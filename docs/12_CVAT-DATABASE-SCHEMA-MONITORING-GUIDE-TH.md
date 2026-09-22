@@ -2,6 +2,8 @@
 
 ← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
 
+สำหรับ endpoint ที่ใช้ monitor ให้เปิด [CVAT API Docs](https://app.cvat.ai/api/docs/) หรือ `http://localhost:8080/api/docs/` ของ instance local และใช้ API เป็นช่องทาง application integration
+
 ## 1. Database กับ API ใช้คนละวัตถุประสงค์
 
 CVAT มี PostgreSQL database ที่เก็บข้อมูลภายใน เช่น users, projects, tasks, jobs, labels, annotations, issues และ comments สามารถเข้าไปดู schema และ monitor ได้ แต่ database ภายในไม่ควรเป็น integration contract ของระบบธุรกิจ เพราะตารางและชื่อ column อาจเปลี่ยนเมื่อ upgrade

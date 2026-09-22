@@ -4,6 +4,8 @@
 
 เอกสารนี้เป็นตัวอย่าง read-only สำหรับ Developer ใช้สร้าง Dashboard หรือรายงานจาก CVAT ตรวจรูปแบบ authentication และ filters จาก source ของรุ่นที่ใช้ในการทดลองแล้ว แต่ต้องตรวจ OpenAPI ของ deployment จริงอีกครั้งหากเปลี่ยนรุ่น
 
+ตรวจ endpoint และ schema ได้จาก [CVAT API Docs](https://app.cvat.ai/api/docs/) หรือ `http://localhost:8080/api/docs/` สำหรับ instance local
+
 > **ขอบเขต:** CSV ที่สร้างในคู่มือนี้เป็นรายงานสถานะจาก API ไม่ใช่ dataset annotation และไม่ใช่แหล่งข้อมูลหลักของ production ควรเก็บ status/event ใน Platform Database หรือ reporting store ตาม retention policy
 
 ## 1. ข้อมูลที่อ่านได้และข้อจำกัด

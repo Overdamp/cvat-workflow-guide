@@ -6,7 +6,7 @@
 
 ## ข้อสรุปสำหรับโครงการปัจจุบัน
 
-แนะนำ **CVAT Community แบบ self-hosted** เป็น annotation engine ของแพลตฟอร์มในระยะนี้ เพราะทีมติดตั้งและทดสอบ workflow จริงแล้ว ตั้งแต่ Project → Task → Job → annotation → review/issue → complete และมี Docker, REST API, Python SDK, webhook, งานหลายผู้ใช้ และการนำเข้า/ส่งออก dataset ที่สอดคล้องกับแผน MinIO + backend database ของเรา ตัว core ของ CVAT Community เป็น MIT License และมี API/SDK สำหรับ integration ([CVAT repository](https://github.com/cvat-ai/cvat), [CVAT Developer Documentation](https://docs.cvat.ai/docs/api_sdk/))
+แนะนำ **CVAT Community แบบ self-hosted** เป็น annotation engine ของแพลตฟอร์มในระยะนี้ เพราะทีมติดตั้งและทดสอบ workflow จริงแล้ว ตั้งแต่ Project → Task → Job → annotation → review/issue → complete และมี Docker, REST API, Python SDK, webhook, งานหลายผู้ใช้ และการนำเข้า/ส่งออก dataset ที่สอดคล้องกับแผน MinIO + backend database ของเรา ตัว core ของ CVAT Community เป็น MIT License และมี API/SDK สำหรับ integration ([CVAT repository](https://github.com/cvat-ai/cvat), [CVAT API Docs](https://app.cvat.ai/api/docs/), [CVAT Developer Documentation](https://docs.cvat.ai/docs/api_sdk/))
 
 การเลือกนี้ไม่ได้หมายความว่า CVAT เหมาะกับทุกงาน หากโจทย์เปลี่ยนเป็นบริการ SaaS ที่ต้องการลดภาระดูแลระบบ, งาน NLP/multimodal เป็นหลัก, หรือแพลตฟอร์มที่ต้องการ active learning และ model lifecycle แบบสำเร็จรูป อาจต้องประเมินเครื่องมืออื่นใหม่
 

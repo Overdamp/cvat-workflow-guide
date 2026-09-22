@@ -189,6 +189,7 @@ with make_client(server, access_token=token) as client:
 
 ## References
 
+- [CVAT API Docs](https://app.cvat.ai/api/docs/)
 - [CVAT Developer Documentation](https://docs.cvat.ai/docs/api_sdk/)
 - [CVAT Server API](https://docs.cvat.ai/docs/api_sdk/api/)
 - [CVAT Python SDK](https://docs.cvat.ai/docs/api_sdk/sdk/)
