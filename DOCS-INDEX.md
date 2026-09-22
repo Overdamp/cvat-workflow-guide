@@ -14,6 +14,7 @@
 | [แนวทางออกแบบ AI Platform ที่ใช้ CVAT เป็น Annotation Service](docs/01_AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md) | `docs/01_AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md` | ภาพรวมผลิตภัณฑ์และสถาปัตยกรรมเป้าหมาย |
 | [คู่มือ Backend: MinIO → CVAT → Annotation/QA → Platform Database](docs/03_CVAT-MINIO-BACKEND-END-TO-END-TH.md) | `docs/03_CVAT-MINIO-BACKEND-END-TO-END-TH.md` | ข้อกำหนดหลักสำหรับ Backend; MinIO/API/SDK/Webhook/DB/Auth |
 | [แนวทางเชื่อม CVAT เข้ากับแพลตฟอร์มอุตสาหกรรม](docs/04_CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md) | `docs/04_CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md` | Integration contract และความสอดคล้องระหว่างบริการ |
+| [Backend Developer Handoff: เชื่อม Platform กับ CVAT](docs/16_BACKEND-DEVELOPER-HANDOFF-TH.md) | `docs/16_BACKEND-DEVELOPER-HANDOFF-TH.md` | เอกสารส่งต่องาน Backend; API/DB/Auth/MinIO/Webhook |
 
 ## คู่มือใช้งานและ API
 

@@ -33,6 +33,7 @@
 | 13 | [Database Schema Reference](13_CVAT-DATABASE-SCHEMA-REFERENCE-TH.md) | snapshot schema สำหรับอ้างอิง |
 | 14 | [Custom Annotation Frontend Options](14_CUSTOM-ANNOTATION-FRONTEND-OPTIONS-TH.md) | ทางเลือกถ้า backend ทำหน้า annotation เอง |
 | 15 | [Label Studio Frontend Integration](15_LABEL-STUDIO-FRONTEND-INTEGRATION-GUIDE-TH.md) | แนวทางใช้ LSF กับ Keycloak, MinIO และ backend DB |
-| 16 | [Historical QA Notes](17_CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md) | ประวัติการทดลอง ไม่ใช่ implementation contract |
+| 16 | [Backend Developer Handoff](16_BACKEND-DEVELOPER-HANDOFF-TH.md) | เอกสารส่งต่อสำหรับ Backend Developer |
+| 17 | [Historical QA Notes](17_CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md) | ประวัติการทดลอง ไม่ใช่ implementation contract |
 
 เอกสารอ้างอิงที่ย้ายออกจากคู่มือหลักอยู่ใน [archive](archive/)

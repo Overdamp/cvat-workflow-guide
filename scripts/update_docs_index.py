@@ -19,6 +19,7 @@ KNOWN = {
  'docs/05_CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md': (1, 'กติกา workflow/queue; schema เป็นข้อเสนอ'),
  'docs/06_CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md': (1, 'ขั้นตอนของ Annotator/Reviewer/Coordinator'),
  'docs/11_CVAT-JOB-STATUS-API-GUIDE-TH.md': (1, 'อ่านสถานะและสร้างรายงานผ่าน API'),
+ 'docs/16_BACKEND-DEVELOPER-HANDOFF-TH.md': (0, 'เอกสารส่งต่องาน Backend; API/DB/Auth/MinIO/Webhook'),
 }
 
 def render():
