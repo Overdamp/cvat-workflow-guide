@@ -1,0 +1,6 @@
+[
+  {"frame": 0, "image_name": "008835.jpg", "width": 1920, "height": 1080, "label": "flange", "type": "rectangle", "points": [817.5, 680.0, 1075.0, 948.75], "rotation": 0.0},
+  {"frame": 0, "image_name": "008835.jpg", "width": 1920, "height": 1080, "label": "analog-gauge", "type": "rectangle", "points": [982.5, 426.25, 1168.75, 621.25], "rotation": 0.0},
+  {"frame": 1, "image_name": "008887.jpg", "width": 1920, "height": 1080, "label": "flange", "type": "rectangle", "points": [511.25, 273.75, 587.5, 328.75], "rotation": 0.0},
+  {"frame": 1, "image_name": "008887.jpg", "width": 1920, "height": 1080, "label": "handwheel-handle", "type": "rectangle", "points": [646.25, 378.75, 698.75, 472.5], "rotation": 0.0}
+]

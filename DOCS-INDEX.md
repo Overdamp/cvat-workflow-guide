@@ -31,6 +31,7 @@
 
 | เอกสาร | ไฟล์ | การใช้งาน |
 |---|---|---|
+| [Sanitized REST API output example](examples/api-results/README.md) | `examples/api-results/README.md` | ตรวจข้อจำกัดและผลทดสอบในเอกสาร |
 | [ตัวอย่างรายงานจาก CVAT Workflow](examples/reports/README.md) | `examples/reports/README.md` | ตรวจข้อจำกัดและผลทดสอบในเอกสาร |
 | [Platform ทดลองเชื่อม CVAT จริง](prototype/README.md) | `prototype/README.md` | ตรวจข้อจำกัดและผลทดสอบในเอกสาร |
 

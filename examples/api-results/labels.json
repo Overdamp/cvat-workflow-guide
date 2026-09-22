@@ -1,0 +1,5 @@
+[
+  {"id": 31, "name": "analog-gauge", "type": "rectangle", "attributes": []},
+  {"id": 35, "name": "flange", "type": "rectangle", "attributes": []},
+  {"id": 38, "name": "handwheel-handle", "type": "rectangle", "attributes": []}
+]

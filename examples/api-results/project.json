@@ -1,0 +1,8 @@
+{
+  "url": "https://cvat.example/api/projects/6",
+  "id": 6,
+  "name": "API-hands-on-example",
+  "owner": {"id": 1, "username": "example-user"},
+  "organization_id": 1,
+  "status": "annotation"
+}

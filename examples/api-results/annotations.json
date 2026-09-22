@@ -1,0 +1,12 @@
+{
+  "version": 0,
+  "tags": [],
+  "shapes": [
+    {"id": 242, "label_id": 35, "type": "rectangle", "frame": 0, "points": [817.5, 680.0, 1075.0, 948.75], "rotation": 0.0, "attributes": []},
+    {"id": 243, "label_id": 31, "type": "rectangle", "frame": 0, "points": [982.5, 426.25, 1168.75, 621.25], "rotation": 0.0, "attributes": []},
+    {"id": 244, "label_id": 35, "type": "rectangle", "frame": 1, "points": [511.25, 273.75, 587.5, 328.75], "rotation": 0.0, "attributes": []},
+    {"id": 245, "label_id": 38, "type": "rectangle", "frame": 1, "points": [646.25, 378.75, 698.75, 472.5], "rotation": 0.0, "attributes": []}
+  ],
+  "tracks": [],
+  "intervals": []
+}

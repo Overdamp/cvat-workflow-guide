@@ -1,0 +1,10 @@
+{
+  "url": "https://cvat.example/api/tasks/7",
+  "id": 7,
+  "name": "two-images-api-example",
+  "project_id": 6,
+  "project_name": "API-hands-on-example",
+  "owner": {"id": 1, "username": "example-user"},
+  "organization_id": 1,
+  "status": "annotation"
+}

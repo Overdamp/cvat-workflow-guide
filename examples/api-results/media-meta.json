@@ -1,0 +1,12 @@
+{
+  "size": 2,
+  "image_quality": 85,
+  "start_frame": 0,
+  "stop_frame": 1,
+  "frame_filter": "",
+  "frames": [
+    {"width": 1920, "height": 1080, "name": "008835.jpg"},
+    {"width": 1920, "height": 1080, "name": "008887.jpg"}
+  ],
+  "storage": "local"
+}

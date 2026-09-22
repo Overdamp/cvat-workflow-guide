@@ -1,0 +1,9 @@
+{
+  "status": "finished",
+  "message": "",
+  "id": "action=create-target-task-7",
+  "operation": {"type": "create:task", "target": "task", "project_id": 6, "task_id": 7, "job_id": null, "org_id": 1},
+  "progress": 0.0,
+  "owner": {"id": 1, "username": "example-user"},
+  "result_url": null
+}
