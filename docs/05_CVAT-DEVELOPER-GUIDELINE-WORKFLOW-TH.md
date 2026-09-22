@@ -1,5 +1,7 @@
 # CVAT Developer Guideline: ระบบจัดคิว Annotation, QA และ Dataset Release
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 เอกสารนี้เป็นแนวทางส่งต่อให้ Developer นำไปออกแบบและพัฒนาระบบ workflow รอบ CVAT สำหรับงานตรวจจับอุปกรณ์โรงงาน ระบบที่อธิบายยังไม่ใช่ implementation สำเร็จรูป แต่เป็นข้อกำหนดเชิงพฤติกรรม, data contract และเกณฑ์ตรวจรับ
 
 ## 1. เป้าหมายของระบบ
@@ -17,7 +19,7 @@ CVAT เป็นระบบหลักสำหรับภาพ, annotation
 
 ห้ามออกแบบให้ Platform export ZIP ทุกครั้งที่ต้องการดูสถานะ เพราะเป็น snapshot ที่ทำให้ storage และข้อมูลซ้ำเพิ่มขึ้น ให้ใช้ Job/Issue API และ Webhook สำหรับสถานะ แล้ว export เฉพาะตอนสร้าง Dataset Release หรือส่งเข้า training
 
-หาก edition/deployment รองรับ SSO และตั้งค่าสำเร็จ ให้เชื่อม CVAT ผ่าน OIDC SSO เพื่อให้ผู้ใช้ไม่ต้อง login ซ้ำ แต่ยังต้อง provision Organization membership, Project/Job permission และ mapping ของกลุ่มผู้ใช้แยกจากการยืนยันตัวตน ดูรายละเอียดใน [AI Platform + CVAT Architecture](AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md#31-ใช้-keycloak-ทำ-sso-ร่วมกับ-platform)
+หาก edition/deployment รองรับ SSO และตั้งค่าสำเร็จ ให้เชื่อม CVAT ผ่าน OIDC SSO เพื่อให้ผู้ใช้ไม่ต้อง login ซ้ำ แต่ยังต้อง provision Organization membership, Project/Job permission และ mapping ของกลุ่มผู้ใช้แยกจากการยืนยันตัวตน ดูรายละเอียดใน [AI Platform + CVAT Architecture](01_AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md#31-ใช้-keycloak-ทำ-sso-ร่วมกับ-platform)
 
 ## 2. ขอบเขตข้อมูลอ้างอิง
 
@@ -226,7 +228,7 @@ CREATE TABLE dataset_releases (
 
 ## 7. CVAT API Integration
 
-ดูตัวอย่างคำสั่งที่นำไปใช้ได้ใน [คู่มือเรียก Job Status API](CVAT-JOB-STATUS-API-GUIDE-TH.md): ดูงานรายคน, คิว QA, Issues/Comments, PAT authentication และ Python สำหรับอ่านทุกหน้าแล้วสร้าง CSV พร้อมข้อจำกัดเรื่อง online status และเปอร์เซ็นต์ความคืบหน้า
+ดูตัวอย่างคำสั่งที่นำไปใช้ได้ใน [คู่มือเรียก Job Status API](11_CVAT-JOB-STATUS-API-GUIDE-TH.md): ดูงานรายคน, คิว QA, Issues/Comments, PAT authentication และ Python สำหรับอ่านทุกหน้าแล้วสร้าง CSV พร้อมข้อจำกัดเรื่อง online status และเปอร์เซ็นต์ความคืบหน้า
 
 ### 7.1 Client requirements
 

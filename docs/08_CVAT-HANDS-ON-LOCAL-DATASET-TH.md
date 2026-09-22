@@ -1,5 +1,7 @@
 # ทดลอง CVAT API ทีละขั้นด้วยภาพจาก dataset ในเครื่อง
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 จัดทำ 22 กันยายน 2026 สำหรับเครื่อง luke ใช้ Bash Terminal เดียวตลอดขั้นตอน
 
 สร้าง Project ใหม่และใช้ภาพ 2 รูปจาก dataset เดิม ไม่แก้ไฟล์ต้นฉบับ ไม่มีการเปลี่ยนสิทธิ์บัญชีหรือแยก QA ใช้ admin2 หรือบัญชีที่มีสิทธิ์สร้างงานใน ptt-demo ก่อน ตัวอย่างใช้ภาพจริงเพื่อวาดเอง จึงยังไม่นำเข้า YOLO labels เดิม
@@ -227,4 +229,4 @@ unset CVAT_ACCESS_TOKEN
 
 ถ้าปิด Terminal ให้เปิดใหม่ ตั้งค่า BASE_URL/ORG/PAT และฟังก์ชัน api ตามขั้น 1–2 โดยชี้ RUN_DIR ไปโฟลเดอร์ผลเดิม แล้วอ่าน IDs จาก ids.json อย่ารัน POST สร้างงานใหม่โดยไม่ได้ตั้งใจ
 
-[API workflow สำหรับ Backend](CVAT-API-WORKFLOW-QUICKSTART-TH.md) · [สารบัญ](../DOCS-INDEX.md)
+[API workflow สำหรับ Backend](07_CVAT-API-WORKFLOW-QUICKSTART-TH.md) · [สารบัญ](00_DOCUMENT-INDEX-TH.md)

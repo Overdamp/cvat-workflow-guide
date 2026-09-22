@@ -1,5 +1,7 @@
 # แนวทางเลือก Label Studio Frontend (LSF)
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 เอกสารนี้อธิบายแนวทางกรณีที่ PTT AI Platform ต้องการนำ **Label Studio Frontend (LSF)** มาใช้เป็น editor ในหน้าเว็บของตนเอง โดยให้ platform backend เป็นผู้ควบคุม authentication, database, workflow, review และการจัดเก็บผลลัพธ์
 
 LSF เป็น frontend package ที่เขียนด้วย React และออกแบบให้ embed ในแอปพลิเคชันได้ โดย backend ของเราเป็นผู้จัดการข้อมูลหลัก เอกสารทางการ: [Label Studio Frontend repository](https://github.com/HumanSignal/label-studio-frontend) และ [Frontend reference](https://labelstud.io/guide/frontend_reference)
@@ -340,4 +342,3 @@ function AnnotationPage({ sessionId }) {
 ให้ใช้ LSF เป็นทางเลือกสำหรับ **custom annotation page** เมื่อ product ต้องการควบคุม UI และ workflow เอง หากเป้าหมายหลักคือให้ทีม annotate ได้เร็วและมี review/assignment/issue พร้อมใช้ ให้ใช้ CVAT ต่อไปแล้วเชื่อมผ่าน REST API/SDK
 
 แนวทางที่ปลอดภัยคือทำ LSF เป็น PoC แยก โดยไม่ลบ workflow CVAT เดิม จนกว่าจะพิสูจน์ได้ว่าการพัฒนา review, concurrency, audit และ export มีต้นทุนต่ำกว่าการใช้ CVAT
-

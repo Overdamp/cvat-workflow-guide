@@ -1,5 +1,7 @@
 # ทดลองสั่ง CVAT ผ่าน Postman
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 คู่มือนี้ใช้ REST API ผ่าน Postman ตั้งแต่ตรวจ Token → สร้าง Project → สร้าง Task → ส่งภาพ → รอ processing → อ่าน Job/annotation โดยใช้ผู้ใช้งานระดับเดียวกันใน Organization สำหรับ PoC
 
 นำเข้า Collection จาก [`examples/postman/CVAT-API-Workflow.postman_collection.json`](../examples/postman/CVAT-API-Workflow.postman_collection.json) แล้วทำตามลำดับที่แสดงใน Collection
@@ -113,4 +115,4 @@ URL ต้องไม่หมดอายุก่อน CVAT processing เ�
 - เก็บ annotation revision ใน Platform ด้วย `revision_id`/digest เพื่อให้กด Send ซ้ำแล้วไม่เกิดข้อมูลซ้ำ
 - Postman ใช้ทดสอบและสำรวจ API; production Backend ควรมี retry, pagination, inbox/outbox และ audit ตามคู่มือ End-to-End
 
-ดู flow แบบ shell ที่ให้ผลเดียวกันใน [REST hands-on](CVAT-HANDS-ON-LOCAL-DATASET-TH.md) และดูขอบเขต API/SDK ใน [Backend guide](CVAT-MINIO-BACKEND-END-TO-END-TH.md)
+ดู flow แบบ shell ที่ให้ผลเดียวกันใน [REST hands-on](08_CVAT-HANDS-ON-LOCAL-DATASET-TH.md) และดูขอบเขต API/SDK ใน [Backend guide](03_CVAT-MINIO-BACKEND-END-TO-END-TH.md)

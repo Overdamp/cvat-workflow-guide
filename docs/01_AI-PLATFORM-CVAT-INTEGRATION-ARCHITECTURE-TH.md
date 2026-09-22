@@ -1,8 +1,10 @@
 # แนวทางออกแบบ AI Platform ที่ใช้ CVAT เป็น Annotation Service
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 เอกสารนี้เป็นแนวทางสำหรับสร้างแพลตฟอร์ม AI แบบ Roboflow โดยให้แพลตฟอร์มเป็นเจ้าของ dataset, workflow และ training ส่วน CVAT เป็นบริการสำหรับวาด annotation และตรวจสอบคุณภาพ การติดตั้งระยะแรกสามารถอยู่บนเครื่องเดียวกันได้ แต่ควรแบ่งขอบเขตบริการและข้อมูลตั้งแต่ต้น เพื่อให้ย้ายไปหลายเครื่องหรือ Kubernetes ได้ภายหลัง
 
-> เอกสารภาพรวมผลิตภัณฑ์ ส่วน API/SDK/MinIO/DB ให้ยึด [คู่มือ Backend](CVAT-MINIO-BACKEND-END-TO-END-TH.md) และเรื่อง consistency ให้ดู [Integration contract](CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
+> เอกสารภาพรวมผลิตภัณฑ์ ส่วน API/SDK/MinIO/DB ให้ยึด [คู่มือ Backend](03_CVAT-MINIO-BACKEND-END-TO-END-TH.md) และเรื่อง consistency ให้ดู [Integration contract](04_CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
 
 สถานะ ณ การทบทวน 22 กันยายน 2026: มี prototype แบบ iframe ผ่าน local proxy แล้ว แต่ยังไม่มี Keycloak SSO, durable webhook inbox และ release service ที่ติดตั้งครบวงจร
 

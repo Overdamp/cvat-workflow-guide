@@ -1,5 +1,7 @@
 # คู่มือปฏิบัติการ CVAT: Workflow Annotation และ QA
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 คู่มือนี้สรุป workflow ที่ทดลองจริงกับ CVAT สำหรับทีมตรวจจับอุปกรณ์โรงงาน ตั้งแต่เตรียมผู้ใช้จนถึง export dataset และรายงานสถานะ
 
 > สถานะอ้างอิงปัจจุบัน: การทดลอง Job #2 ดำเนินครบวงจรแล้ว โดย `annotator01` ทำ annotation, `reviewer01` ตรวจและเปิด Issue 1 จุด, annotator แก้ไข, reviewer Resolve Issue และ Coordinator ตรวจรับเป็น `Acceptance / Completed` ไฟล์ export ที่ตรวจแล้วมี 20 ภาพ, 241 annotations และ 26 classes

@@ -1,5 +1,7 @@
 # คู่มือ Backend: MinIO → CVAT → Annotation/QA → Platform Database
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 ปรับปรุง 18 กันยายน 2026 สำหรับคุยและออกแบบร่วมกับ Backend Developer
 อ้างอิง source ในเครื่องทดลองสาย CVAT 2.75 และเอกสารทางการ ตัวอย่างเป็นข้อเสนอ implementation ไม่ใช่การยืนยันว่าติดตั้ง MinIO/Keycloak integration แล้ว
 
@@ -421,9 +423,9 @@ annotation_key ต้องรวมชนิด resource และขอบเ�
 - [CVAT API/SDK และ version compatibility](https://docs.cvat.ai/docs/api_sdk/)
 - [Task SDK recipes](https://docs.cvat.ai/docs/api_sdk/sdk/examples/tasks/)
 - [SSO configuration — Enterprise](https://docs.cvat.ai/docs/account_management/sso/)
-- [API status guide](CVAT-JOB-STATUS-API-GUIDE-TH.md)
-- [Database monitoring](CVAT-DATABASE-SCHEMA-MONITORING-GUIDE-TH.md)
-- [Platform architecture](AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md)
+- [API status guide](11_CVAT-JOB-STATUS-API-GUIDE-TH.md)
+- [Database monitoring](12_CVAT-DATABASE-SCHEMA-MONITORING-GUIDE-TH.md)
+- [Platform architecture](01_AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md)
 - [Prototype ที่ใช้งานในเครื่อง](../prototype/README.md)
 
 ตรวจ implementation จาก source ใน workspace: cvat-sdk/cvat_sdk/core/proxies/tasks.py (upload_data/create_from_data), cvat-sdk/cvat_sdk/core/client.py (make_client), cvat/apps/engine/task.py (remote_files → _download_data), cvat/apps/webhooks/utils.py (X-Signature-256) เมื่อ upgrade ให้ตรวจใหม่และยึด OpenAPI ของ instance เป็นหลัก

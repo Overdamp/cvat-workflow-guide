@@ -1,5 +1,7 @@
 # ทางเลือกเมื่อ Backend ทำหน้า Annotation เอง
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 เอกสารนี้ใช้สำหรับกรณีที่ PTT AI Platform ต้องการแสดงหน้า annotation อยู่ใน frontend ของตนเอง โดยไม่ฝัง CVAT UI ทั้งหน้า และให้ backend ของ platform เป็นผู้ควบคุม authentication, งาน, database และการบันทึกผล
 
 ## ข้อสรุป
@@ -148,4 +150,3 @@ Backend ต้องตอบ `409 Conflict` เมื่อ revision เปล�
 | ต้องการ QA, assignment, issue และ workflow หลายผู้ใช้ครบ | **ใช้ CVAT ต่อไป** |
 
 สำหรับระบบจริงของเรา ควรเริ่ม prototype ด้วย Annotorious หรือ Label Studio Frontend แล้วทดสอบ 5 เรื่องก่อนตัดสินใจ: การโหลดภาพจาก MinIO, การ save/reload, concurrent edit, การ map Keycloak user และการสร้าง export YOLO/COCO จาก backend DB หากต้องพัฒนา review/assignment เองมากเกินไป ให้กลับไปใช้ CVAT เป็น annotation engine แล้วใช้ platform เป็น orchestration layer
-

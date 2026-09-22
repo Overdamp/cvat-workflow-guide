@@ -1,5 +1,7 @@
 # CVAT PostgreSQL Schema Reference
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 เอกสารนี้สร้างจากฐานข้อมูล CVAT ที่กำลังรันอยู่ใน Docker container `cvat_db` เมื่อ 17 กันยายน 2026 เพื่อใช้เป็น reference สำหรับ developer โดยมี 71 ตารางใน schema `public`.
 
 > ใช้อ่านและ monitor เท่านั้น ควรแก้ไขข้อมูลผ่าน CVAT REST API ไม่ควรแก้ตารางโดยตรง เพราะอาจทำให้ cache, storage และข้อมูล annotation ไม่สอดคล้องกัน
@@ -871,5 +873,4 @@ docker compose exec -T cvat_db psql -U root -d cvat -c '\d+ engine_job'
 - ตาราง annotation มีทั้ง shape, image, track และ attribute จึงไม่ควรอ่านเพียงตารางเดียวเพื่อสรุป annotation ทั้งหมด
 - ค่า `points` และฟิลด์ JSON/text บางส่วนเป็น representation ภายใน CVAT ควรใช้ API หรือ export format สำหรับงาน downstream
 - schema อาจเปลี่ยนตาม version และ migration ของ CVAT ควร regenerate เอกสารหลัง upgrade
-
 

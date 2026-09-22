@@ -1,5 +1,7 @@
 # ตารางตัดสินใจเลือก Annotation Tool
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 เอกสารนี้ใช้เป็นเอกสารประกอบการประชุมเพื่อเปรียบเทียบเครื่องมือทำ annotation และอธิบายเหตุผลที่โครงการ PTT AI Platform เลือก CVAT ในระยะ PoC/เริ่มต้น การให้คะแนนเป็นการประเมินเบื้องต้นตามบริบทของโครงการ ไม่ใช่ผล benchmark และควรตรวจสอบราคาและความสามารถของ edition ที่จะใช้งานจริงอีกครั้งก่อนจัดซื้อ
 
 ## ข้อสรุปสำหรับโครงการปัจจุบัน
@@ -65,7 +67,7 @@ CVAT มี integration layer เป็น REST API + Swagger, Python SDK แล
 
 \* Keycloak: คะแนนนี้หมายถึงต้องตรวจวิธี OIDC/SAML ของรุ่นที่ใช้และการแมป role เพิ่มเติม ไม่ควรถือว่า Keycloak JWT จาก platform จะใช้เป็น CVAT API token ได้โดยอัตโนมัติ ใน PoC ให้หน้าเว็บใช้ SSO ตามความสามารถของ deployment และให้ backend ใช้ PAT/service account แยกเก็บใน secret manager
 
-รูปแบบ flow ที่ทุกตัวเลือกต้องรองรับคือ `MinIO → backend สร้าง task → annotator ทำงาน → event/webhook → backend อ่าน annotation ผ่าน API → upsert ลง backend DB → สร้าง dataset release` โดยไม่เขียนตารางภายในของ annotation tool โดยตรง
+รูปแบบ flow ที่ตัวเลือกแบบ server/annotation engine ต้องรองรับคือ `MinIO → backend สร้าง task/session → annotator ทำงาน → event/callback/webhook → backend อ่าน annotation ผ่าน API → upsert ลง backend DB → สร้าง dataset release` โดยไม่เขียนตารางภายในของ annotation tool โดยตรง สำหรับ frontend-only เช่น LSF หรือ Annotorious ให้ backend สร้าง `annotation_session` แทน CVAT task
 
 ## ตารางคัดกรองเครื่องมือเพิ่มเติม
 

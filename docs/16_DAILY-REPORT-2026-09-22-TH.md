@@ -1,5 +1,7 @@
 # Daily Report — 22 September 2026
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 ## 1. Today’s Goals
 
 - กำหนดเครื่องมือ annotation ที่เหมาะกับสถาปัตยกรรม PTT AI Platform
@@ -190,5 +192,5 @@ with make_client(server, access_token=token) as client:
 - [CVAT Developer Documentation](https://docs.cvat.ai/docs/api_sdk/)
 - [CVAT Server API](https://docs.cvat.ai/docs/api_sdk/api/)
 - [CVAT Python SDK](https://docs.cvat.ai/docs/api_sdk/sdk/)
-- [Custom Annotation Frontend Options](./CUSTOM-ANNOTATION-FRONTEND-OPTIONS-TH.md)
-- [Annotation Tool Selection Matrix](./ANNOTATION-TOOL-SELECTION-MATRIX-TH.md)
+- [Custom Annotation Frontend Options](./14_CUSTOM-ANNOTATION-FRONTEND-OPTIONS-TH.md)
+- [Annotation Tool Selection Matrix](./02_ANNOTATION-TOOL-SELECTION-MATRIX-TH.md)

@@ -1,23 +1,23 @@
 # CVAT + AI Platform — คู่มือภาษาไทย
 
-[สารบัญเอกสารทั้งหมด](DOCS-INDEX.md) · [วิธีเพิ่มเอกสารและอัปเดตสารบัญ](CONTRIBUTING.md)
+[สารบัญเอกสารสำหรับ Developer](docs/00_DOCUMENT-INDEX-TH.md) · [สารบัญไฟล์อัตโนมัติ](DOCS-INDEX.md) · [วิธีเพิ่มเอกสารและอัปเดตสารบัญ](CONTRIBUTING.md)
 
 ## เริ่มอ่านตามหน้าที่
 
-**ทดลองเองบนเครื่อง luke:** [คำสั่งทีละขั้นพร้อม dataset path จริง](docs/CVAT-HANDS-ON-LOCAL-DATASET-TH.md)
+**ทดลองเองบนเครื่อง luke:** [คำสั่งทีละขั้นพร้อม dataset path จริง](docs/08_CVAT-HANDS-ON-LOCAL-DATASET-TH.md)
 
-**ทดลองผ่าน Postman:** [Postman Workflow Guide](docs/CVAT-POSTMAN-WORKFLOW-GUIDE-TH.md) และ [Collection ที่ import ได้](examples/postman/CVAT-API-Workflow.postman_collection.json)
-
-
-**เริ่มลงมือเรียก API แบบง่าย โดยผู้ใช้สิทธิ์เท่ากัน:** [API Workflow Quickstart พร้อม curl](docs/CVAT-API-WORKFLOW-QUICKSTART-TH.md)
+**ทดลองผ่าน Postman:** [Postman Workflow Guide](docs/09_CVAT-POSTMAN-WORKFLOW-GUIDE-TH.md) และ [Collection ที่ import ได้](examples/postman/CVAT-API-Workflow.postman_collection.json)
 
 
-1. Backend Developer: [MinIO → CVAT → Platform Database](docs/CVAT-MINIO-BACKEND-END-TO-END-TH.md)
-2. ออกแบบผลิตภัณฑ์: [AI Platform Architecture](docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md)
-3. ออกแบบความสอดคล้องของบริการ: [Integration Contract](docs/CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
-4. ออกแบบคิว/QA: [Developer Workflow](docs/CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md)
-5. Annotator/Reviewer/Coordinator: [คู่มือปฏิบัติการ](docs/CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md)
-6. Dashboard/reporting: [Job Status API](docs/CVAT-JOB-STATUS-API-GUIDE-TH.md)
+**เริ่มลงมือเรียก API แบบง่าย โดยผู้ใช้สิทธิ์เท่ากัน:** [API Workflow Quickstart พร้อม curl](docs/07_CVAT-API-WORKFLOW-QUICKSTART-TH.md)
+
+
+1. Backend Developer: [MinIO → CVAT → Platform Database](docs/03_CVAT-MINIO-BACKEND-END-TO-END-TH.md)
+2. ออกแบบผลิตภัณฑ์: [AI Platform Architecture](docs/01_AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md)
+3. ออกแบบความสอดคล้องของบริการ: [Integration Contract](docs/04_CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
+4. ออกแบบคิว/QA: [Developer Workflow](docs/05_CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md)
+5. Annotator/Reviewer/Coordinator: [คู่มือปฏิบัติการ](docs/06_CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md)
+6. Dashboard/reporting: [Job Status API](docs/11_CVAT-JOB-STATUS-API-GUIDE-TH.md)
 7. ทดลองเว็บฝัง CVAT: [วิธีรัน Prototype](prototype/README.md)
 
 ## แนวทางปัจจุบัน
@@ -36,10 +36,11 @@ Platform เชื่อม CVAT ผ่าน REST API/SDK; Webhook เป็น
 
 ## ฐานข้อมูลและหลักฐานย้อนหลัง
 
-- [Database monitoring](docs/CVAT-DATABASE-SCHEMA-MONITORING-GUIDE-TH.md)
-- [Schema snapshot วันที่ 17 กันยายน](docs/CVAT-DATABASE-SCHEMA-REFERENCE-TH.md) ไม่ใช่ schema สด
+- [Database monitoring](docs/12_CVAT-DATABASE-SCHEMA-MONITORING-GUIDE-TH.md)
+- [Schema snapshot วันที่ 17 กันยายน](docs/13_CVAT-DATABASE-SCHEMA-REFERENCE-TH.md) ไม่ใช่ schema สด
 - [ตัวอย่างรายงาน](examples/reports/README.md) เป็น snapshot ที่ปรับสำหรับเผยแพร่ ไม่ใช่ live status
-- [Q&A ประวัติการทดลอง](docs/archive/CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md)
+- [สารบัญเอกสารสำหรับ Developer](docs/00_DOCUMENT-INDEX-TH.md)
+- [Q&A ประวัติการทดลอง](docs/17_CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md)
 
 ## โครงสร้าง
 

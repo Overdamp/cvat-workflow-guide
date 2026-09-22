@@ -1,5 +1,7 @@
 # ทดลอง Python SDK ด้วย dataset เดิม
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 ใช้ภาพ train 2 รูปจาก dataset เครื่อง luke และ 26 classes เหมือน REST hands-on แต่สร้าง Project/Task ใหม่ การเรียกใช้เป็น SDK จริงผ่าน make_client, projects.create, tasks.create, upload_data, get_annotations และ job.update; SDK เรียก REST API ภายในให้อีกทอด
 
 ## 1. ติดตั้ง (ครั้งแรก)
@@ -69,4 +71,4 @@ mapped-shapes เป็นตัวอย่างสำหรับ shapes เ�
 
 Token ไม่บันทึกลงไฟล์ ผลทดลองเก็บใต้ artifacts ที่ Git ignore แล้ว ยังต้องให้ผู้ใช้รันด้วย PAT และทำ annotation เพื่อยืนยันครบวงจร ไม่ถือว่าตัวอย่างนี้ผ่าน integration test เพียงเพราะ syntax ผ่าน
 
-[สคริปต์](../examples/sdk/local_dataset.py) · [REST hands-on](CVAT-HANDS-ON-LOCAL-DATASET-TH.md) · [สารบัญ](../DOCS-INDEX.md)
+[สคริปต์](../examples/sdk/local_dataset.py) · [REST hands-on](08_CVAT-HANDS-ON-LOCAL-DATASET-TH.md) · [สารบัญ](00_DOCUMENT-INDEX-TH.md)

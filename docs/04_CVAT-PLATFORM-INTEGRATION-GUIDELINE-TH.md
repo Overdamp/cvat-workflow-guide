@@ -1,11 +1,13 @@
 # แนวทางเชื่อม CVAT เข้ากับแพลตฟอร์มอุตสาหกรรม
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 จัดทำ: 17 กันยายน 2026
 สำหรับ: Developer, Solution Architect และผู้ดูแลระบบ
 
 เอกสารนี้บันทึกแนวทาง integration ที่อภิปรายจากการทดลอง CVAT ของทีม เป็นข้อเสนอเชิงสถาปัตยกรรม ไม่ใช่ผลสำรวจว่าส่วนใหญ่ของบริษัทใช้รูปแบบใด และไม่ใช่การยืนยันว่าระบบ integration ถูกพัฒนาแล้ว
 
-> ขอบเขตฉบับนี้คือ integration contract: consistency, retry, outbox/inbox และ release approval ส่วนตัวอย่าง API/SDK/MinIO ให้ดู [คู่มือ Backend](CVAT-MINIO-BACKEND-END-TO-END-TH.md) ส่วนการรัน iframe ที่มีอยู่แล้วดู [Prototype](../prototype/README.md)
+> ขอบเขตฉบับนี้คือ integration contract: consistency, retry, outbox/inbox และ release approval ส่วนตัวอย่าง API/SDK/MinIO ให้ดู [คู่มือ Backend](03_CVAT-MINIO-BACKEND-END-TO-END-TH.md) ส่วนการรัน iframe ที่มีอยู่แล้วดู [Prototype](../prototype/README.md)
 
 ## 1. ข้อเสนอสำหรับโครงการนี้
 
@@ -363,9 +365,9 @@ Iframe และ reverse proxy ต้องทดสอบ base URL, headers, co
 
 ## 21. เอกสารและไฟล์สำหรับ Developer
 
-- [Developer Workflow Guideline](CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md)
-- [คู่มือปฏิบัติการ Annotator / QA](CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md)
-- [Q&A และข้อค้นพบระหว่างทดสอบ](CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md)
+- [Developer Workflow Guideline](05_CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md)
+- [คู่มือปฏิบัติการ Annotator / QA](06_CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md)
+- [Q&A และข้อค้นพบระหว่างทดสอบ](17_CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md)
 - [CSV สถานะหลังตรวจรับ](../examples/reports/job-status-final.csv)
 - [JSON ผลตรวจ ZIP](../examples/reports/export-validation.json)
 - [CVAT REST API / SDK / CLI](https://docs.cvat.ai/docs/api_sdk/)

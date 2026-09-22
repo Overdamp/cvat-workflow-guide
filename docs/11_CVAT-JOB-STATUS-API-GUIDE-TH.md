@@ -1,5 +1,7 @@
 # เรียก CVAT API เพื่อดูสถานะงานและคิว QA
 
+← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
+
 เอกสารนี้เป็นตัวอย่าง read-only สำหรับ Developer ใช้สร้าง Dashboard หรือรายงานจาก CVAT ตรวจรูปแบบ authentication และ filters จาก source ของรุ่นที่ใช้ในการทดลองแล้ว แต่ต้องตรวจ OpenAPI ของ deployment จริงอีกครั้งหากเปลี่ยนรุ่น
 
 ## 1. ข้อมูลที่อ่านได้และข้อจำกัด
@@ -250,8 +252,8 @@ python export_job_status.py > job-status.csv
 
 ## 10. เอกสารประกอบ
 
-- [Developer Workflow Guideline](CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md)
-- [Platform Integration Guideline](CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
+- [Developer Workflow Guideline](05_CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md)
+- [Platform Integration Guideline](04_CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md)
 - [ตัวอย่างรายงานและความหมาย field](../examples/reports/README.md)
 - [CVAT API และ SDK](https://docs.cvat.ai/docs/api_sdk/)
 - [Personal Access Tokens](https://docs.cvat.ai/docs/api_sdk/access_tokens/)
