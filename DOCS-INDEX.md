@@ -56,4 +56,5 @@
 | [ทางเลือกเมื่อ Backend ทำหน้า Annotation เอง](docs/CUSTOM-ANNOTATION-FRONTEND-OPTIONS-TH.md) | `docs/CUSTOM-ANNOTATION-FRONTEND-OPTIONS-TH.md` | ตรวจขอบเขตและสถานะในไฟล์; จัดกลุ่มเพิ่มได้ในสคริปต์ |
 | [ทดลอง Python SDK ด้วย dataset เดิม](docs/CVAT-SDK-HANDS-ON-TH.md) | `docs/CVAT-SDK-HANDS-ON-TH.md` | ตรวจขอบเขตและสถานะในไฟล์; จัดกลุ่มเพิ่มได้ในสคริปต์ |
 | [Daily Report — 22 September 2026](docs/DAILY-REPORT-2026-09-22-TH.md) | `docs/DAILY-REPORT-2026-09-22-TH.md` | ตรวจขอบเขตและสถานะในไฟล์; จัดกลุ่มเพิ่มได้ในสคริปต์ |
+| [แนวทางเลือก Label Studio Frontend (LSF)](docs/LABEL-STUDIO-FRONTEND-INTEGRATION-GUIDE-TH.md) | `docs/LABEL-STUDIO-FRONTEND-INTEGRATION-GUIDE-TH.md` | ตรวจขอบเขตและสถานะในไฟล์; จัดกลุ่มเพิ่มได้ในสคริปต์ |
 
