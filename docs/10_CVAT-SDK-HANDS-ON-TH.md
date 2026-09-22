@@ -18,6 +18,8 @@ python3 -m venv .venv
 
 ตรวจ endpoint และ schema ของ server ได้จาก [CVAT API Docs](https://app.cvat.ai/api/docs/) หรือเปลี่ยน host เป็น `http://localhost:8080/api/docs/` สำหรับ instance local
 
+คู่มือ SDK และหัวข้ออื่นของ CVAT: [CVAT Documentation](https://docs.cvat.ai/docs/)
+
 ## 2. สร้างงานใหม่
 
 ```bash

@@ -12,6 +12,8 @@
 
 **API reference:** [CVAT API Docs](https://app.cvat.ai/api/docs/) เป็น interactive reference; หากทำงานกับ local CVAT ให้ใช้ host เดิมของ instance เช่น `http://localhost:8080/api/docs/`
 
+**CVAT official documentation:** [https://docs.cvat.ai/docs/](https://docs.cvat.ai/docs/)
+
 อ่านตามลำดับนี้เพื่อเข้าใจระบบจากภาพรวมไปจนถึงการลงมือทดสอบ:
 
 | ลำดับ | เอกสาร | เนื้อหา |

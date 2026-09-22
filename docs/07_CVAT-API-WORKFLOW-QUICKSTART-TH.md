@@ -69,6 +69,8 @@ PAT สร้างจาก Access tokens ของบัญชี CVAT ที�
 
 API reference แบบ interactive: [CVAT API Docs](https://app.cvat.ai/api/docs/) สำหรับ instance ที่ใช้งานจริงให้เปลี่ยน host เป็น `http://localhost:8080/api/docs/` หรือ `https://<cvat-host>/api/docs/` ส่วน schema ของ instance คือ `/api/schema/?scheme=json` และควรยึด schema ของ instance เป็นหลัก
 
+คู่มือ CVAT ทั้งหมด: [CVAT Documentation](https://docs.cvat.ai/docs/)
+
 ## 1. สร้าง Project พร้อม Labels
 
 ```bash

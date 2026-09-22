@@ -6,6 +6,8 @@
 
 เปิดเอกสาร API แบบ interactive ได้ที่ [https://app.cvat.ai/api/docs/](https://app.cvat.ai/api/docs/) หากทดสอบ CVAT local ให้ใช้ `http://localhost:8080/api/docs/` เพื่อดู endpoint/schema ของ instance ที่กำลังรันอยู่
 
+เอกสาร CVAT ทางการสำหรับ workspace, dataset formats, administration และ API: [CVAT Documentation](https://docs.cvat.ai/docs/)
+
 นำเข้า Collection จาก [`examples/postman/CVAT-API-Workflow.postman_collection.json`](../examples/postman/CVAT-API-Workflow.postman_collection.json) แล้วทำตามลำดับที่แสดงใน Collection
 
 ## 1. เตรียม Environment

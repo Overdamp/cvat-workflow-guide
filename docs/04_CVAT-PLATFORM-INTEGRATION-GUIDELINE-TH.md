@@ -7,6 +7,8 @@
 
 API reference ของ instance: [CVAT API Docs](https://app.cvat.ai/api/docs/) หรือ `http://localhost:8080/api/docs/` สำหรับ CVAT local; ให้ยึด schema ของ instance จริงเมื่อมีความแตกต่างจาก public reference
 
+เอกสารผลิตภัณฑ์และการติดตั้ง: [CVAT Documentation](https://docs.cvat.ai/docs/)
+
 เอกสารนี้บันทึกแนวทาง integration ที่อภิปรายจากการทดลอง CVAT ของทีม เป็นข้อเสนอเชิงสถาปัตยกรรม ไม่ใช่ผลสำรวจว่าส่วนใหญ่ของบริษัทใช้รูปแบบใด และไม่ใช่การยืนยันว่าระบบ integration ถูกพัฒนาแล้ว
 
 > ขอบเขตฉบับนี้คือ integration contract: consistency, retry, outbox/inbox และ release approval ส่วนตัวอย่าง API/SDK/MinIO ให้ดู [คู่มือ Backend](03_CVAT-MINIO-BACKEND-END-TO-END-TH.md) ส่วนการรัน iframe ที่มีอยู่แล้วดู [Prototype](../prototype/README.md)

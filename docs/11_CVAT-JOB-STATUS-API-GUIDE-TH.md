@@ -6,6 +6,8 @@
 
 ตรวจ endpoint และ schema ได้จาก [CVAT API Docs](https://app.cvat.ai/api/docs/) หรือ `http://localhost:8080/api/docs/` สำหรับ instance local
 
+เอกสาร CVAT ทางการ: [CVAT Documentation](https://docs.cvat.ai/docs/)
+
 > **ขอบเขต:** CSV ที่สร้างในคู่มือนี้เป็นรายงานสถานะจาก API ไม่ใช่ dataset annotation และไม่ใช่แหล่งข้อมูลหลักของ production ควรเก็บ status/event ใน Platform Database หรือ reporting store ตาม retention policy
 
 ## 1. ข้อมูลที่อ่านได้และข้อจำกัด

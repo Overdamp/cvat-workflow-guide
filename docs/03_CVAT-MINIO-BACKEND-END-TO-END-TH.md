@@ -3,7 +3,7 @@
 ← [สารบัญเอกสาร](00_DOCUMENT-INDEX-TH.md)
 
 ปรับปรุง 18 กันยายน 2026 สำหรับคุยและออกแบบร่วมกับ Backend Developer
-อ้างอิง source ในเครื่องทดลองสาย CVAT 2.75 และเอกสารทางการ ตัวอย่างเป็นข้อเสนอ implementation ไม่ใช่การยืนยันว่าติดตั้ง MinIO/Keycloak integration แล้ว
+อ้างอิง source ในเครื่องทดลองสาย CVAT 2.75 และ [เอกสาร CVAT ทางการ](https://docs.cvat.ai/docs/) ตัวอย่างเป็นข้อเสนอ implementation ไม่ใช่การยืนยันว่าติดตั้ง MinIO/Keycloak integration แล้ว
 
 ## 1. ข้อสรุปที่ต้องเข้าใจตรงกัน
 

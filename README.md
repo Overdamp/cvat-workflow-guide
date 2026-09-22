@@ -13,6 +13,8 @@
 
 **อ้างอิง API แบบ interactive:** [CVAT API Docs](https://app.cvat.ai/api/docs/) หรือใช้ `http://localhost:8080/api/docs/` เมื่อทดสอบ CVAT local
 
+**เอกสาร CVAT ทางการทั้งหมด:** [CVAT Documentation](https://docs.cvat.ai/docs/)
+
 
 1. Backend Developer: [MinIO → CVAT → Platform Database](docs/03_CVAT-MINIO-BACKEND-END-TO-END-TH.md)
 2. ออกแบบผลิตภัณฑ์: [AI Platform Architecture](docs/01_AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md)

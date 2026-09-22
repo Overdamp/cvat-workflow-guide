@@ -36,6 +36,8 @@
 
 CVAT มี integration layer เป็น REST API + Swagger, Python SDK และ CLI รวมทั้งระบุว่าควรจับคู่ major/minor version ของ server กับ SDK/CLI ให้ตรงกัน ([CVAT Developer Documentation](https://docs.cvat.ai/docs/api_sdk/)) Label Studio มี API สำหรับ import/export, cloud storage และ ML integration และมี webhook สำหรับแจ้งเหตุการณ์ไปยัง pipeline ([Label Studio API](https://labelstud.io/guide/api), [Label Studio webhooks](https://labelstud.io/guide/webhooks.html))
 
+เอกสาร CVAT ครบทุกหมวด: [CVAT Documentation](https://docs.cvat.ai/docs/) · API แบบ interactive: [CVAT API Docs](https://app.cvat.ai/api/docs/)
+
 ## ตารางเปรียบเทียบปัจจัยหลัก
 
 คะแนน 1–5: 5 = ตรงกับความต้องการมาก, 1 = ต้องพัฒนาเพิ่มมากหรือมีข้อจำกัดสำคัญ
