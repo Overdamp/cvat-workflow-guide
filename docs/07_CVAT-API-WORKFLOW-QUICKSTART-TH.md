@@ -4,6 +4,8 @@
 
 วันที่ 22 กันยายน 2026 · สำหรับ Backend Developer · อ้างอิง source สาย 2.75 ในเครื่องทดลอง
 
+> **ขอบเขต:** ขั้นตอนนี้เป็น PoC ที่มีทั้ง local upload และ MinIO remote upload เพื่อทดสอบ API ในเครื่อง local สำหรับ production ให้ใช้ MinIO/cloud storage หรือ ingestion service ตามคู่มือ 03 และใช้ local upload เฉพาะกรณีทดสอบหรือไฟล์ชั่วคราว
+
 ## ขอบเขตของรอบนี้
 
 ทุกคนทำงานระดับเดียวกัน ไม่มีคิวแยก Annotator/Reviewer หรือ approval หลายชั้น ใช้ flow เริ่มทำ → บันทึก → เสร็จ → ดึงผล แบบนี้เป็นการประกาศเสร็จงาน ไม่ใช่หลักฐานว่าผ่าน QA อิสระ
