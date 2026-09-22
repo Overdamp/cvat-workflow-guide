@@ -4,7 +4,7 @@
 
 จัดทำ 22 กันยายน 2026 สำหรับเครื่อง luke ใช้ Bash Terminal เดียวตลอดขั้นตอน
 
-> **เอกสารทดลองเท่านั้น:** คู่มือนี้ upload ภาพจาก path local เข้า CVAT เพื่อพิสูจน์ REST API ไม่ใช่รูปแบบ ingestion หลักของ production และไม่ควรนำ artifacts ใน `RUN_DIR` ไปเก็บเป็นฐานข้อมูลถาวร
+> **Optional Manual Flow:** คู่มือนี้ upload ภาพจาก path local เข้า CVAT เพื่อพิสูจน์ REST API ใช้สำหรับ debug, migration หรือทดสอบเมื่อ MinIO/backend ingestion ยังไม่พร้อม ไม่ใช่รูปแบบ ingestion หลักของ production และไม่ควรนำ artifacts ใน `RUN_DIR` ไปเก็บเป็นฐานข้อมูลถาวร
 
 สร้าง Project ใหม่และใช้ภาพ 2 รูปจาก dataset เดิม ไม่แก้ไฟล์ต้นฉบับ ไม่มีการเปลี่ยนสิทธิ์บัญชีหรือแยก QA ใช้ admin2 หรือบัญชีที่มีสิทธิ์สร้างงานใน ptt-demo ก่อน ตัวอย่างใช้ภาพจริงเพื่อวาดเอง จึงยังไม่นำเข้า YOLO labels เดิม
 

@@ -6,7 +6,7 @@
 
 **แนวทาง Production ที่ให้ Backend ยึดเป็นหลัก:** เอกสาร 03–05 และแนวคิด API/SDK ในเอกสาร 07, 09, 10 ใช้ REST API หรือ Python SDK เพื่อสร้างงาน อ่านสถานะ และอ่าน annotation แล้วบันทึกลง Platform Database โดยตรง ภาพต้นฉบับอยู่ใน MinIO และไม่ใช้ export ZIP เป็นฐานข้อมูล
 
-**เอกสารทดลอง/หลักฐาน:** เอกสาร 08 เป็นการ upload ภาพ local เพื่อพิสูจน์ workflow, เอกสาร 10 ใช้ local dataset และสร้างไฟล์ JSON ชั่วคราว, เอกสาร 11 สร้าง CSV status report และ `examples/reports/` เป็น snapshot จากการทดลอง เอกสารเหล่านี้ไม่ใช่ข้อกำหนดให้ production เก็บไฟล์ซ้ำถาวร
+**Optional Manual Flow / เอกสารทดลอง:** เอกสาร 08 เป็นการ upload ภาพ local เพื่อพิสูจน์ workflow, เอกสาร 10 ใช้ local dataset และสร้างไฟล์ JSON ชั่วคราว, เอกสาร 11 สร้าง CSV status report และ `examples/reports/` เป็น snapshot จากการทดลอง ใช้ได้เมื่อ backend/MinIO ยังไม่พร้อมหรือใช้ debug/manual release แต่ไม่ใช่ข้อกำหนดให้ production เก็บไฟล์ซ้ำถาวร
 
 **Export ZIP/COCO/YOLO:** ใช้เมื่อสร้าง Dataset Release, ส่งเข้า training หรือส่งมอบให้ consumer เท่านั้น ไม่ใช้ polling สถานะหรือ sync ทุกครั้งที่มีการแก้ annotation
 

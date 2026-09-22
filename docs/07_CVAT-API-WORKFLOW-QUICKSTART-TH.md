@@ -4,7 +4,7 @@
 
 วันที่ 22 กันยายน 2026 · สำหรับ Backend Developer · อ้างอิง source สาย 2.75 ในเครื่องทดลอง
 
-> **ขอบเขต:** ขั้นตอนนี้เป็น PoC ที่มีทั้ง local upload และ MinIO remote upload เพื่อทดสอบ API ในเครื่อง local สำหรับ production ให้ใช้ MinIO/cloud storage หรือ ingestion service ตามคู่มือ 03 และใช้ local upload เฉพาะกรณีทดสอบหรือไฟล์ชั่วคราว
+> **ขอบเขต:** ขั้นตอนนี้เป็น PoC ที่มีทั้ง local upload และ MinIO remote upload เพื่อทดสอบ API ในเครื่อง local สำหรับ production ให้ใช้ MinIO/cloud storage หรือ ingestion service ตามคู่มือ 03 ส่วน local upload และ export ZIP เป็น **Optional Manual Flow** สำหรับ debug, migration หรือ manual release เมื่อจำเป็น
 
 ## ขอบเขตของรอบนี้
 
@@ -98,7 +98,7 @@ Task ใน Project ใช้ labels ของ Project ไม่ส่ง labels
 
 ## 3. ส่งภาพเข้า Task — เลือกวิธีเดียว
 
-### A. ไฟล์ local (ทดสอบเร็ว)
+### A. Optional Manual: ไฟล์ local (ทดสอบเร็ว)
 
 เปลี่ยน paths ให้เป็นไฟล์จริง ไม่ใช้ร่วมกับ B ใน Task เดียวกัน:
 
@@ -234,7 +234,7 @@ rectangle rotation=0 ใช้ xmin,ymin,xmax,ymax หน่วย pixel Backend
 
 เมื่อดึงซ้ำให้ใช้ digest/revision ป้องกัน duplicate และสะท้อน shape ที่ลบไปด้วย ไม่ INSERT เพิ่มทุกครั้ง หากอ่านทั้ง Task ใช้ GET /api/tasks/{id}/annotations หลังตรวจว่า Jobs ในขอบเขตเสร็จครบและไม่มีการแก้ระหว่าง capture
 
-## 9. Optional: Export สำหรับ training tool
+## 9. Optional Manual: Export สำหรับ training tool
 
 ข้ามขั้นนี้ได้หาก training อ่าน MinIO originals และ annotation revision ได้อยู่แล้ว ตรวจชื่อ format จาก GET /api/server/annotation/formats ของ instance ก่อน ตัวอย่าง COCO:
 

@@ -4,7 +4,7 @@
 
 ใช้ภาพ train 2 รูปจาก dataset เครื่อง luke และ 26 classes เหมือน REST hands-on แต่สร้าง Project/Task ใหม่ การเรียกใช้เป็น SDK จริงผ่าน make_client, projects.create, tasks.create, upload_data, get_annotations และ job.update; SDK เรียก REST API ภายในให้อีกทอด
 
-> **เอกสารทดลองเท่านั้น:** สคริปต์นี้ใช้ local dataset และสร้างไฟล์ JSON ใน `artifacts/` เพื่อให้ตรวจผลได้ง่าย Production ควรให้ worker อ่านผลจาก SDK แล้ว upsert ลง Platform Database โดยตรง ไม่เก็บไฟล์เหล่านี้ซ้ำทุกครั้ง
+> **Optional Manual Flow:** สคริปต์นี้ใช้ local dataset และสร้างไฟล์ JSON ใน `artifacts/` เพื่อให้ตรวจผลได้ง่าย ใช้สำหรับ debug หรือทดสอบ SDK เมื่อ ingestion service ยังไม่พร้อม Production ควรให้ worker อ่านผลจาก SDK แล้ว upsert ลง Platform Database โดยตรง ไม่เก็บไฟล์เหล่านี้ซ้ำทุกครั้ง
 
 ## 1. ติดตั้ง (ครั้งแรก)
 

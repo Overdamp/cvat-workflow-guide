@@ -2,7 +2,7 @@
 
 ไฟล์เหล่านี้เป็น snapshot สำหรับศึกษาโครงสร้างรายงานที่ระบบเสริมสร้างขึ้น ไม่ใช่ export format มาตรฐานที่ CVAT UI มีปุ่มให้ดาวน์โหลดโดยตรง และไม่ใช่ฐานข้อมูล production
 
-ระบบ production ควรอ่านสถานะและ annotation ผ่าน REST API/SDK แล้วเขียนลง Platform Database หรือ reporting store ตาม schema/version ของระบบ ส่วน CSV/JSON เหล่านี้ใช้เป็นตัวอย่าง, validation evidence หรือ fixture สำหรับทดสอบเท่านั้น
+ระบบ production ควรอ่านสถานะและ annotation ผ่าน REST API/SDK แล้วเขียนลง Platform Database หรือ reporting store ตาม schema/version ของระบบ ส่วน CSV/JSON เหล่านี้เป็น **Optional Manual Flow** ใช้เป็นตัวอย่าง, validation evidence, debug output หรือ fixture สำหรับทดสอบเท่านั้น
 
 | ไฟล์ | จุดประสงค์ |
 |---|---|
