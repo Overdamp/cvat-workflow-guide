@@ -15,6 +15,7 @@
 | [คู่มือ Backend: MinIO → CVAT → Annotation/QA → Platform Database](docs/03_CVAT-MINIO-BACKEND-END-TO-END-TH.md) | `docs/03_CVAT-MINIO-BACKEND-END-TO-END-TH.md` | ข้อกำหนดหลักสำหรับ Backend; MinIO/API/SDK/Webhook/DB/Auth |
 | [แนวทางเชื่อม CVAT เข้ากับแพลตฟอร์มอุตสาหกรรม](docs/04_CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md) | `docs/04_CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md` | Integration contract และความสอดคล้องระหว่างบริการ |
 | [Backend Developer Handoff: เชื่อม Platform กับ CVAT](docs/16_BACKEND-DEVELOPER-HANDOFF-TH.md) | `docs/16_BACKEND-DEVELOPER-HANDOFF-TH.md` | เอกสารส่งต่องาน Backend; API/DB/Auth/MinIO/Webhook |
+| [ตารางเปรียบเทียบเครื่องมือในหน้า Annotate: Roboflow, CVAT และ Label Studio](docs/18_ANNOTATION-EDITOR-FEATURE-MATRIX-TH.md) | `docs/18_ANNOTATION-EDITOR-FEATURE-MATRIX-TH.md` | เทียบฟีเจอร์หน้า annotate โดยใช้ Roboflow เป็น baseline |
 
 ## คู่มือใช้งานและ API
 

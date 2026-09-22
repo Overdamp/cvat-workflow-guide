@@ -23,6 +23,7 @@
 5. Annotator/Reviewer/Coordinator: [คู่มือปฏิบัติการ](docs/06_CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md)
 6. Dashboard/reporting: [Job Status API](docs/11_CVAT-JOB-STATUS-API-GUIDE-TH.md)
 7. ทดลองเว็บฝัง CVAT: [วิธีรัน Prototype](prototype/README.md)
+8. เปรียบเทียบฟีเจอร์หน้า Annotate: [Roboflow vs CVAT vs Label Studio](docs/18_ANNOTATION-EDITOR-FEATURE-MATRIX-TH.md)
 
 ## แนวทางปัจจุบัน
 
