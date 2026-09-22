@@ -9,23 +9,23 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / 'DOCS-INDEX.md'
 GROUPS = ['คู่มือหลัก', 'คู่มือใช้งานและ API', 'ฐานข้อมูล', 'ระบบทดลองและตัวอย่าง', 'เอกสารประวัติ / ลิงก์ย้าย', 'เอกสารอื่นและไฟล์ใหม่']
 KNOWN = {
- 'docs/CVAT-HANDS-ON-LOCAL-DATASET-TH.md': (1, 'ทดลองทีละขั้นด้วยภาพจริงจาก dataset ในเครื่อง luke'),
- 'docs/CVAT-POSTMAN-WORKFLOW-GUIDE-TH.md': (1, 'ทดลอง REST API ผ่าน Postman แบบเรียงลำดับ'),
- 'docs/CVAT-API-WORKFLOW-QUICKSTART-TH.md': (1, 'คำสั่ง curl ตั้งแต่สร้าง Project จนดึงผล; PoC สิทธิ์เท่ากัน'),
+ 'docs/08_CVAT-HANDS-ON-LOCAL-DATASET-TH.md': (1, 'ทดลองทีละขั้นด้วยภาพจริงจาก dataset ในเครื่อง luke'),
+ 'docs/09_CVAT-POSTMAN-WORKFLOW-GUIDE-TH.md': (1, 'ทดลอง REST API ผ่าน Postman แบบเรียงลำดับ'),
+ 'docs/07_CVAT-API-WORKFLOW-QUICKSTART-TH.md': (1, 'คำสั่ง curl ตั้งแต่สร้าง Project จนดึงผล; PoC สิทธิ์เท่ากัน'),
  'README.md': (0, 'จุดเริ่มต้นและสถานะโครงการ'),
- 'docs/CVAT-MINIO-BACKEND-END-TO-END-TH.md': (0, 'ข้อกำหนดหลักสำหรับ Backend; MinIO/API/SDK/Webhook/DB/Auth'),
- 'docs/AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md': (0, 'ภาพรวมผลิตภัณฑ์และสถาปัตยกรรมเป้าหมาย'),
- 'docs/CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md': (0, 'Integration contract และความสอดคล้องระหว่างบริการ'),
- 'docs/CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md': (1, 'กติกา workflow/queue; schema เป็นข้อเสนอ'),
- 'docs/CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md': (1, 'ขั้นตอนของ Annotator/Reviewer/Coordinator'),
- 'docs/CVAT-JOB-STATUS-API-GUIDE-TH.md': (1, 'อ่านสถานะและสร้างรายงานผ่าน API'),
+ 'docs/03_CVAT-MINIO-BACKEND-END-TO-END-TH.md': (0, 'ข้อกำหนดหลักสำหรับ Backend; MinIO/API/SDK/Webhook/DB/Auth'),
+ 'docs/01_AI-PLATFORM-CVAT-INTEGRATION-ARCHITECTURE-TH.md': (0, 'ภาพรวมผลิตภัณฑ์และสถาปัตยกรรมเป้าหมาย'),
+ 'docs/04_CVAT-PLATFORM-INTEGRATION-GUIDELINE-TH.md': (0, 'Integration contract และความสอดคล้องระหว่างบริการ'),
+ 'docs/05_CVAT-DEVELOPER-GUIDELINE-WORKFLOW-TH.md': (1, 'กติกา workflow/queue; schema เป็นข้อเสนอ'),
+ 'docs/06_CVAT-WORKFLOW-OPERATIONS-GUIDE-TH.md': (1, 'ขั้นตอนของ Annotator/Reviewer/Coordinator'),
+ 'docs/11_CVAT-JOB-STATUS-API-GUIDE-TH.md': (1, 'อ่านสถานะและสร้างรายงานผ่าน API'),
 }
 
 def render():
     sections = {group: [] for group in GROUPS}
     for p in sorted(ROOT.rglob('*.md')):
         relative = p.relative_to(ROOT)
-        if p == INDEX or any(part.startswith('.') or part in {'node_modules', 'venv'} for part in relative.parts):
+        if p == INDEX or 'DAILY-REPORT-' in p.name or any(part.startswith('.') or part in {'node_modules', 'venv'} for part in relative.parts):
             continue
         name = relative.as_posix()
         lines = p.read_text(encoding='utf-8').splitlines()

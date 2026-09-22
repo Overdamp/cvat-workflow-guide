@@ -19,6 +19,7 @@ __pycache__/
 datasets/
 artifacts/
 *live-snapshot*.json
+docs/16_DAILY-REPORT-*.md
 
 # Editor / operating system
 .DS_Store
