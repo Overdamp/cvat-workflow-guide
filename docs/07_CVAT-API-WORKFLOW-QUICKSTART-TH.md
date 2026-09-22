@@ -67,7 +67,7 @@ api "$CVAT_BASE_URL/api/users/self" | jq '{id,username}'
 
 PAT สร้างจาก Access tokens ของบัญชี CVAT ที่ใช้ทดสอบ ต้องเป็น token ที่เขียนได้เมื่อจะ POST/PATCH ถ้าได้ 401 ตรวจ token; 403 ตรวจ membership/role อย่าใส่ Keycloak JWT แทนโดยสมมติว่ารองรับ
 
-URL Swagger: http://localhost:8080/api/swagger/ และ schema ของ instance: /api/schema/?scheme=json
+API reference แบบ interactive: [CVAT API Docs](https://app.cvat.ai/api/docs/) สำหรับ instance ที่ใช้งานจริงให้เปลี่ยน host เป็น `http://localhost:8080/api/docs/` หรือ `https://<cvat-host>/api/docs/` ส่วน schema ของ instance คือ `/api/schema/?scheme=json` และควรยึด schema ของ instance เป็นหลัก
 
 ## 1. สร้าง Project พร้อม Labels
 

@@ -16,6 +16,8 @@ python3 -m venv .venv
 
 ใช้ SDK สาย 2.75 สำหรับ server สาย 2.75 ต้องปรับเวอร์ชันถ้า upgrade server ไม่ต้อง activate venv เพราะคำสั่งใช้ Python ของ venv โดยตรง
 
+ตรวจ endpoint และ schema ของ server ได้จาก [CVAT API Docs](https://app.cvat.ai/api/docs/) หรือเปลี่ยน host เป็น `http://localhost:8080/api/docs/` สำหรับ instance local
+
 ## 2. สร้างงานใหม่
 
 ```bash

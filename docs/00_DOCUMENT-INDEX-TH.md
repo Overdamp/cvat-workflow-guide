@@ -10,6 +10,8 @@
 
 **Export ZIP/COCO/YOLO:** ใช้เมื่อสร้าง Dataset Release, ส่งเข้า training หรือส่งมอบให้ consumer เท่านั้น ไม่ใช้ polling สถานะหรือ sync ทุกครั้งที่มีการแก้ annotation
 
+**API reference:** [CVAT API Docs](https://app.cvat.ai/api/docs/) เป็น interactive reference; หากทำงานกับ local CVAT ให้ใช้ host เดิมของ instance เช่น `http://localhost:8080/api/docs/`
+
 อ่านตามลำดับนี้เพื่อเข้าใจระบบจากภาพรวมไปจนถึงการลงมือทดสอบ:
 
 | ลำดับ | เอกสาร | เนื้อหา |

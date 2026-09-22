@@ -420,6 +420,7 @@ annotation_key ต้องรวมชนิด resource และขอบเ�
 
 ## 13. แหล่งตรวจสอบและเอกสารประกอบ
 
+- [CVAT API Docs แบบ interactive](https://app.cvat.ai/api/docs/)
 - [CVAT API/SDK และ version compatibility](https://docs.cvat.ai/docs/api_sdk/)
 - [Task SDK recipes](https://docs.cvat.ai/docs/api_sdk/sdk/examples/tasks/)
 - [SSO configuration — Enterprise](https://docs.cvat.ai/docs/account_management/sso/)

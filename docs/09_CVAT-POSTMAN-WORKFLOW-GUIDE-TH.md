@@ -4,6 +4,8 @@
 
 คู่มือนี้ใช้ REST API ผ่าน Postman ตั้งแต่ตรวจ Token → สร้าง Project → สร้าง Task → ส่งภาพ → รอ processing → อ่าน Job/annotation โดยใช้ผู้ใช้งานระดับเดียวกันใน Organization สำหรับ PoC
 
+เปิดเอกสาร API แบบ interactive ได้ที่ [https://app.cvat.ai/api/docs/](https://app.cvat.ai/api/docs/) หากทดสอบ CVAT local ให้ใช้ `http://localhost:8080/api/docs/` เพื่อดู endpoint/schema ของ instance ที่กำลังรันอยู่
+
 นำเข้า Collection จาก [`examples/postman/CVAT-API-Workflow.postman_collection.json`](../examples/postman/CVAT-API-Workflow.postman_collection.json) แล้วทำตามลำดับที่แสดงใน Collection
 
 ## 1. เตรียม Environment
