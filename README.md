@@ -24,6 +24,7 @@
 6. Dashboard/reporting: [Job Status API](docs/11_CVAT-JOB-STATUS-API-GUIDE-TH.md)
 7. ทดลองเว็บฝัง CVAT: [วิธีรัน Prototype](prototype/README.md)
 8. เปรียบเทียบฟีเจอร์หน้า Annotate: [Roboflow vs CVAT vs Label Studio](docs/18_ANNOTATION-EDITOR-FEATURE-MATRIX-TH.md)
+9. อธิบายข้อมูลสำหรับ Backend: [CVAT REST API → Platform Database](docs/19_CVAT-REST-API-TO-BACKEND-EXPLANATION-TH.md)
 
 ## แนวทางปัจจุบัน
 

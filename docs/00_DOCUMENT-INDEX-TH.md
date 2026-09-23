@@ -36,5 +36,6 @@
 | 16 | [Backend Developer Handoff](16_BACKEND-DEVELOPER-HANDOFF-TH.md) | เอกสารส่งต่อสำหรับ Backend Developer |
 | 17 | [Historical QA Notes](17_CVAT-QA-WORKFLOW-SYSTEM-DESIGN-TH.md) | ประวัติการทดลอง ไม่ใช่ implementation contract |
 | 18 | [Annotation Editor Feature Matrix](18_ANNOTATION-EDITOR-FEATURE-MATRIX-TH.md) | เปรียบเทียบฟีเจอร์หน้า annotate โดยใช้ Roboflow เป็น baseline |
+| 19 | [CVAT REST API to Backend Explanation](19_CVAT-REST-API-TO-BACKEND-EXPLANATION-TH.md) | ความสัมพันธ์ระหว่าง CVAT DB, REST API และ Platform DB สำหรับ Backend |
 
 เอกสารอ้างอิงที่ย้ายออกจากคู่มือหลักอยู่ใน [archive](archive/)
