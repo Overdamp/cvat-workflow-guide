@@ -22,6 +22,7 @@ KNOWN = {
  'docs/16_BACKEND-DEVELOPER-HANDOFF-TH.md': (0, 'เอกสารส่งต่องาน Backend; API/DB/Auth/MinIO/Webhook'),
  'docs/18_ANNOTATION-EDITOR-FEATURE-MATRIX-TH.md': (0, 'เทียบฟีเจอร์หน้า annotate โดยใช้ Roboflow เป็น baseline'),
  'docs/19_CVAT-REST-API-TO-BACKEND-EXPLANATION-TH.md': (0, 'อธิบาย CVAT DB, REST API และการ map ลง Platform DB'),
+ 'docs/20_ANNOTATION-TOOL-SELECTION-MATRIX-TH.md': (0, 'เทียบสถาปัตยกรรมและเกณฑ์เลือกใช้ Label Studio กับ CVAT'),
 }
 
 def render():

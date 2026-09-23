@@ -25,6 +25,7 @@
 7. ทดลองเว็บฝัง CVAT: [วิธีรัน Prototype](prototype/README.md)
 8. เปรียบเทียบฟีเจอร์หน้า Annotate: [Roboflow vs CVAT vs Label Studio](docs/18_ANNOTATION-EDITOR-FEATURE-MATRIX-TH.md)
 9. อธิบายข้อมูลสำหรับ Backend: [CVAT REST API → Platform Database](docs/19_CVAT-REST-API-TO-BACKEND-EXPLANATION-TH.md)
+10. เกณฑ์เลือก annotation tool: [Label Studio vs CVAT Selection Matrix](docs/20_ANNOTATION-TOOL-SELECTION-MATRIX-TH.md)
 
 ## แนวทางปัจจุบัน
 
