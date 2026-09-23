@@ -7,6 +7,35 @@
 สำหรับ Backend Architect, Data Engineer และทีม AI; ตรวจสอบหลักฐานเมื่อ 23 กันยายน 2026 บน **Label Studio Community 1.23.0** และ **CVAT Community 2.x/dev**. 
 เอกสารนี้สรุปความแตกต่างเชิงสถาปัตยกรรม โครงสร้างข้อมูล และกรณีศึกษาเฉพาะทาง (เช่น งานอ่านค่าเกจวัดอนาล็อกและ OCR) เพื่อใช้ตัดสินใจเลือกและวางระบบร่วมกับ AI Platform
 
+## ภาพประกอบจากการทดสอบ
+
+ภาพต่อไปนี้เป็น screenshot ที่ใช้ประกอบการเปรียบเทียบหน้าจอและเครื่องมือ annotation ภายในเอกสารนี้
+
+<details>
+<summary>คลิกเพื่อแสดงภาพทั้งหมด</summary>
+
+### ภาพที่ 1
+
+![ภาพประกอบเครื่องมือ annotation 1](assets/annotation-tool-comparison/01-annotation-tool.png)
+
+### ภาพที่ 2
+
+![ภาพประกอบเครื่องมือ annotation 2](assets/annotation-tool-comparison/02-annotation-tool.png)
+
+### ภาพที่ 3
+
+![ภาพประกอบเครื่องมือ annotation 3](assets/annotation-tool-comparison/03-annotation-tool.png)
+
+### ภาพที่ 4
+
+![ภาพประกอบเครื่องมือ annotation 4](assets/annotation-tool-comparison/04-annotation-tool.png)
+
+### ภาพที่ 5
+
+![ภาพประกอบเครื่องมือ annotation 5](assets/annotation-tool-comparison/05-annotation-tool.png)
+
+</details>
+
 ---
 
 ## 1. ภาพรวมสถาปัตยกรรมหลัก (Core Architecture Comparison)
