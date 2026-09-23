@@ -130,23 +130,23 @@ Roboflow รวม annotation editor, assignment, QA, dataset versioning แล�
 
 คลิกเพื่อแสดงภาพทั้งหมด
 
-### ภาพที่ 1
+### ภาพที่ 1: Roboflow
 
 ![ภาพประกอบเครื่องมือ annotation 1](assets/annotation-tool-comparison/01-annotation-tool.png)
 
-### ภาพที่ 2
+### ภาพที่ 2: CVAT
 
 ![ภาพประกอบเครื่องมือ annotation 2](assets/annotation-tool-comparison/02-annotation-tool.png)
 
-### ภาพที่ 3
+### ภาพที่ 3: Label Studio ต้อง create template
 
 ![ภาพประกอบเครื่องมือ annotation 3](assets/annotation-tool-comparison/03-annotation-tool.png)
 
-### ภาพที่ 4
+### ภาพที่ 4 Label Studio ตัวอย่างการสร้าง template
 
 ![ภาพประกอบเครื่องมือ annotation 4](assets/annotation-tool-comparison/04-annotation-tool.png)
 
-### ภาพที่ 5
+### ภาพที่ 5 Label Studio เครื่องมือจะมีตาม template
 
 ![ภาพประกอบเครื่องมือ annotation 5](assets/annotation-tool-comparison/05-annotation-tool.png)
 
