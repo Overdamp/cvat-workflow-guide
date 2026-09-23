@@ -128,6 +128,28 @@ Roboflow รวม annotation editor, assignment, QA, dataset versioning แล�
 
 **ข้อเสนอสำหรับ PoC ปัจจุบัน:** ใช้ CVAT เป็น annotation engine, ให้ backend จัดการคิวและสถานะโดยทุกคนมีสิทธิ์เท่ากันก่อน, ใช้ MinIO เป็น source ของภาพ, ใช้ REST API/SDK เป็นทางหลัก และเก็บผลสุดท้ายใน database ของ platform ส่วน export ZIP/COCO/YOLO ให้เป็น manual fallback สำหรับ debug หรือ release เท่านั้น
 
+คลิกเพื่อแสดงภาพทั้งหมด
+
+### ภาพที่ 1
+
+![ภาพประกอบเครื่องมือ annotation 1](assets/annotation-tool-comparison/01-annotation-tool.png)
+
+### ภาพที่ 2
+
+![ภาพประกอบเครื่องมือ annotation 2](assets/annotation-tool-comparison/02-annotation-tool.png)
+
+### ภาพที่ 3
+
+![ภาพประกอบเครื่องมือ annotation 3](assets/annotation-tool-comparison/03-annotation-tool.png)
+
+### ภาพที่ 4
+
+![ภาพประกอบเครื่องมือ annotation 4](assets/annotation-tool-comparison/04-annotation-tool.png)
+
+### ภาพที่ 5
+
+![ภาพประกอบเครื่องมือ annotation 5](assets/annotation-tool-comparison/05-annotation-tool.png)
+
 ## แหล่งอ้างอิงทางการ
 
 - [Roboflow Annotate](https://docs.roboflow.com/roboflow/roboflow-jp/anotto/use-roboflow-annotate)
