@@ -6,6 +6,20 @@
 
 เอกสารการดูแลระบบและสถาปัตยกรรม: [CVAT Documentation](https://docs.cvat.ai/docs/)
 
+## ภาพประกอบการตรวจสอบฐานข้อมูล
+
+ภาพจาก DBeaver ต่อไปนี้ใช้ประกอบการตรวจสอบ schema และความสัมพันธ์ของตารางแบบ visual:
+
+![ภาพ DBeaver สำหรับตรวจสอบ CVAT database 1](assets/database-monitoring/01-dbeaver-schema.png)
+
+![ภาพ DBeaver สำหรับตรวจสอบ CVAT database 2](assets/database-monitoring/02-dbeaver-schema.png)
+
+![ภาพ DBeaver สำหรับตรวจสอบ CVAT database 3](assets/database-monitoring/03-dbeaver-schema.png)
+
+![ภาพ DBeaver สำหรับตรวจสอบ CVAT database 4](assets/database-monitoring/04-dbeaver-schema.png)
+
+ภาพเป็นหลักฐานประกอบการดู schema เท่านั้น ไม่ควรใช้ SQL แก้ข้อมูลภายใน CVAT โดยตรง ให้ใช้ REST API หรือ SDK เป็นหลัก
+
 ## 1. Database กับ API ใช้คนละวัตถุประสงค์
 
 CVAT มี PostgreSQL database ที่เก็บข้อมูลภายใน เช่น users, projects, tasks, jobs, labels, annotations, issues และ comments สามารถเข้าไปดู schema และ monitor ได้ แต่ database ภายในไม่ควรเป็น integration contract ของระบบธุรกิจ เพราะตารางและชื่อ column อาจเปลี่ยนเมื่อ upgrade

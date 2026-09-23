@@ -16,6 +16,7 @@ __pycache__/
 *.jpeg
 *.png
 !docs/assets/annotation-tool-comparison/*.png
+!docs/assets/database-monitoring/*.png
 *.mp4
 datasets/
 artifacts/
